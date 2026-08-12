@@ -26,6 +26,8 @@ function configureChartDefaults() {
 }
 
 // ─── Theme management ────────────────────────────────────────────────────
+// Three modes: 'auto' (follow system), 'dark', 'light'
+// The toggle cycles: auto → dark → light → auto
 
 const THEME_KEY = 'qa-dashboard-theme';
 
@@ -37,8 +39,17 @@ function storeTheme(theme) {
   try { localStorage.setItem(THEME_KEY, theme); } catch (_) {}
 }
 
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
+function resolveTheme(pref) {
+  // Convert a preference ('auto'/'dark'/'light') to an actual theme
+  if (pref === 'dark' || pref === 'light') return pref;
+  // 'auto' or null → follow system
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}
+
+function applyTheme(pref) {
+  const resolved = resolveTheme(pref);
+  document.documentElement.setAttribute('data-theme', resolved);
+  document.documentElement.setAttribute('data-theme-pref', pref || 'auto');
   // Re-configure Chart.js colors for the new theme and re-render
   if (DATA && typeof Chart !== 'undefined') {
     configureChartDefaults();
@@ -47,17 +58,25 @@ function applyTheme(theme) {
 }
 
 function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme') || 'dark';
-  const next = current === 'dark' ? 'light' : 'dark';
+  const pref = document.documentElement.getAttribute('data-theme-pref') || 'auto';
+  // Cycle: auto → dark → light → auto
+  const next = pref === 'auto' ? 'dark' : pref === 'dark' ? 'light' : 'auto';
   applyTheme(next);
   storeTheme(next);
 }
 
 function initTheme() {
   const stored = getStoredTheme();
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-  const theme = stored || (prefersLight ? 'light' : 'dark');
-  document.documentElement.setAttribute('data-theme', theme);
+  const pref = (stored === 'dark' || stored === 'light') ? stored : 'auto';
+  applyTheme(pref);
+
+  // Listen for system theme changes in real-time (only affects 'auto' mode)
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+    const currentPref = document.documentElement.getAttribute('data-theme-pref') || 'auto';
+    if (currentPref === 'auto') {
+      applyTheme('auto');
+    }
+  });
 }
 
 let DATA = null;

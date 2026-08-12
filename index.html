@@ -11,8 +11,13 @@
     (function() {
       try {
         var t = localStorage.getItem('qa-dashboard-theme');
-        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', t);
+        // 'auto' or null → follow system; 'light'/'dark' → user override
+        if (t !== 'light' && t !== 'dark') t = 'auto';
+        var resolved = (t === 'auto' || !t)
+          ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+          : t;
+        document.documentElement.setAttribute('data-theme', resolved);
+        document.documentElement.setAttribute('data-theme-pref', t);
       } catch(e) {}
     })();
   </script>
@@ -27,7 +32,8 @@
         <p class="subtitle">Performance Dashboard — Topic Coverage & Understanding</p>
       </div>
       <div class="header-meta">
-        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Switch light/dark theme">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cycle theme" title="Cycle: Auto → Dark → Light">
+          <span class="theme-icon theme-icon-auto">🖥️</span>
           <span class="theme-icon theme-icon-dark">🌙</span>
           <span class="theme-icon theme-icon-light">☀️</span>
         </button>
