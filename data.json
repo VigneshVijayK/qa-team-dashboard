@@ -1,6 +1,6 @@
 {
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-12T19:01:49.727Z",
+  "generatedAt": "2026-08-12T19:15:37.760Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -18,22 +18,23 @@
     {
       "name": "Emil Thomas",
       "initials": "ET",
-      "daysPresent": 4,
+      "daysPresent": 5,
       "datesPresent": [
         "2026-08-06",
         "2026-08-07",
         "2026-08-10",
-        "2026-08-11"
+        "2026-08-11",
+        "2026-08-12"
       ],
-      "totalBugs": 13,
+      "totalBugs": 15,
       "severityCounts": {
         "critical": 0,
         "high": 1,
-        "medium": 6,
+        "medium": 7,
         "lowMedium": 1,
-        "low": 5
+        "low": 6
       },
-      "score": 268,
+      "score": 273,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
@@ -185,6 +186,38 @@
             "medium": 4,
             "lowMedium": 0,
             "low": 5
+          }
+        },
+        {
+          "date": "2026-08-12",
+          "bugsFound": 2,
+          "features": [
+            "Monitors",
+            "AI Analyst",
+            "Host Installation",
+            "Security Headers",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "On-host testing",
+            "Static analysis",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "On-host runtime testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 1,
+            "lowMedium": 0,
+            "low": 1
           }
         }
       ]
@@ -1123,6 +1156,34 @@
         "Retest/verification",
         "Fix recommendations",
         "Static analysis"
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas bugs verification 2026-08-12.md",
+      "path": "reports/2026-08-12_Emil Thomas bugs verification 2026-08-12.md",
+      "bugsFound": 2,
+      "features": [
+        "Monitors",
+        "AI Analyst",
+        "Host Installation",
+        "Security Headers",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "On-host testing",
+        "Static analysis",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Retest/verification",
+        "Fix recommendations",
+        "On-host runtime testing"
       ]
     },
     {

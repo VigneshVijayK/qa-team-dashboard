@@ -179,7 +179,8 @@ function parseReport(filePath, folderDate) {
 
   if (/consolidated/i.test(basename)) return null;
 
-  const testerMatch = content.match(/^\*{0,2}Tester\*{0,2}:\*{0,2}\s*(.+)$/im);
+  // Extract tester — handles "Tester:", "**Tester:**", "Tested by:", "**Tested by:**"
+  const testerMatch = content.match(/^\*{0,2}(?:Tester|Tested by)\*{0,2}:\*{0,2}\s*(.+)$/im);
   if (!testerMatch) return null;
   const rawTester = extractTesterName(testerMatch[1]);
 
