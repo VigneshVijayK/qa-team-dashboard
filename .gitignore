@@ -1,0 +1,16 @@
+# Dependencies — none (build.js uses only Node.js built-ins)
+# Keep this file even though it's empty, so the repo has no surprises.
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Local-only artifacts
+*.log

@@ -1,0 +1,932 @@
+{
+  "teamAdmin": "Vignesh Vijay K",
+  "generatedAt": "2026-08-12T10:47:47.536Z",
+  "dateRange": [
+    "2026-08-06",
+    "2026-08-07",
+    "2026-08-10",
+    "2026-08-11"
+  ],
+  "weights": {
+    "daysPresent": 5,
+    "perFeature": 12,
+    "perMethod": 8,
+    "perDepthSignal": 6
+  },
+  "members": [
+    {
+      "name": "Emil Thomas",
+      "initials": "ET",
+      "daysPresent": 4,
+      "datesPresent": [
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "totalBugs": 13,
+      "severityCounts": {
+        "critical": 0,
+        "high": 1,
+        "medium": 6,
+        "lowMedium": 1,
+        "low": 5
+      },
+      "score": 268,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Host Installation",
+        "Incidents/Cases",
+        "Logs",
+        "Metric Alerts",
+        "Monitors",
+        "On-call scheduling",
+        "OpenAPI/Version",
+        "Security Headers",
+        "Status Pages",
+        "Webhooks"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "DevTools inspection",
+        "GUI testing",
+        "On-host testing",
+        "Retest/verification",
+        "Static analysis"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "DevTools evidence",
+        "Fix recommendations",
+        "Impact analysis",
+        "On-host runtime testing",
+        "Retest/verification",
+        "Root cause analysis",
+        "Static analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-06",
+          "bugsFound": 2,
+          "features": [
+            "Logs",
+            "Monitors",
+            "Incidents/Cases",
+            "Security Headers"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "DevTools inspection"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis",
+            "DevTools evidence"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 1,
+            "lowMedium": 1,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-07",
+          "bugsFound": 1,
+          "features": [
+            "Monitors"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "DevTools inspection"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis",
+            "DevTools evidence"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 1,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-10",
+          "bugsFound": 0,
+          "features": [
+            "Logs",
+            "AI Analyst",
+            "Host Installation",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "On-host testing",
+            "Static analysis",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "On-host runtime testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-11",
+          "bugsFound": 10,
+          "features": [
+            "On-call scheduling",
+            "Monitors",
+            "AI Analyst",
+            "Host Installation",
+            "Status Pages",
+            "Webhooks",
+            "Metric Alerts",
+            "Incidents/Cases",
+            "API Tokens",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "On-host testing",
+            "Static analysis",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "On-host runtime testing",
+            "Static analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 4,
+            "lowMedium": 0,
+            "low": 5
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vikki Hirapure",
+      "initials": "VH",
+      "daysPresent": 3,
+      "datesPresent": [
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-11"
+      ],
+      "totalBugs": 19,
+      "severityCounts": {
+        "critical": 1,
+        "high": 3,
+        "medium": 9,
+        "lowMedium": 0,
+        "low": 6
+      },
+      "score": 205,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Alerts (Telegram/SMS)",
+        "Context Assets",
+        "Logs",
+        "Monitors",
+        "OpenAPI/Version",
+        "Security Headers",
+        "Status Pages",
+        "Threat Intelligence"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-06",
+          "bugsFound": 3,
+          "features": [
+            "Threat Intelligence",
+            "Context Assets"
+          ],
+          "methods": [
+            "GUI testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-07",
+          "bugsFound": 1,
+          "features": [
+            "Context Assets",
+            "API Tokens"
+          ],
+          "methods": [
+            "API testing",
+            "Security testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Security testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 1,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-11",
+          "bugsFound": 15,
+          "features": [
+            "Logs",
+            "Monitors",
+            "AI Analyst",
+            "Status Pages",
+            "Security Headers",
+            "API Tokens",
+            "Alerts (Telegram/SMS)",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Security testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Security testing",
+            "Retest/verification"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 3,
+            "medium": 6,
+            "lowMedium": 0,
+            "low": 6
+          }
+        }
+      ]
+    },
+    {
+      "name": "Angel Thomas",
+      "initials": "AT",
+      "daysPresent": 4,
+      "datesPresent": [
+        "2026-08-06",
+        "2026-08-07",
+        "2026-08-10",
+        "2026-08-11"
+      ],
+      "totalBugs": 5,
+      "severityCounts": {
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "lowMedium": 0,
+        "low": 1
+      },
+      "score": 184,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Host Installation",
+        "Incidents/Cases",
+        "Monitors",
+        "On-call scheduling",
+        "Security Headers",
+        "Status Pages"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "GUI testing",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "On-host runtime testing",
+        "Root cause analysis",
+        "Security testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-06",
+          "bugsFound": 1,
+          "features": [
+            "On-call scheduling",
+            "Incidents/Cases"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-07",
+          "bugsFound": 1,
+          "features": [
+            "Monitors",
+            "Status Pages",
+            "Incidents/Cases"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-10",
+          "bugsFound": 1,
+          "features": [
+            "Monitors",
+            "AI Analyst",
+            "Host Installation"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis",
+            "On-host runtime testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 1
+          }
+        },
+        {
+          "date": "2026-08-11",
+          "bugsFound": 2,
+          "features": [
+            "AI Analyst",
+            "Host Installation",
+            "Security Headers",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Security testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Security testing",
+            "Fix recommendations"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 2,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mubarak Mohammed",
+      "initials": "MM",
+      "daysPresent": 2,
+      "datesPresent": [
+        "2026-08-06",
+        "2026-08-11"
+      ],
+      "totalBugs": 2,
+      "severityCounts": {
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "lowMedium": 0,
+        "low": 0
+      },
+      "score": 102,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Incidents/Cases",
+        "On-call scheduling"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "DevTools inspection",
+        "GUI testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-06",
+          "bugsFound": 1,
+          "features": [
+            "On-call scheduling",
+            "Incidents/Cases"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-11",
+          "bugsFound": 1,
+          "features": [
+            "AI Analyst",
+            "Incidents/Cases",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "DevTools inspection",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Anubhav Soni",
+      "initials": "AS",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-06"
+      ],
+      "totalBugs": 1,
+      "severityCounts": {
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "lowMedium": 0,
+        "low": 0
+      },
+      "score": 77,
+      "featuresCovered": [
+        "Incidents/Cases",
+        "Logs"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "Root cause analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-06",
+          "bugsFound": 1,
+          "features": [
+            "Logs",
+            "Incidents/Cases"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 1,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "date": "2026-08-06",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-8-6.md",
+      "path": "reports/2026-08-06_Angel-Thomas_report_26-8-6.md",
+      "bugsFound": 1,
+      "features": [
+        "On-call scheduling",
+        "Incidents/Cases"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "tester": "Anubhav Soni",
+      "filename": "Anubhav_Report_2026-08-06.md",
+      "path": "reports/2026-08-06_Anubhav_Report_2026-08-06.md",
+      "bugsFound": 1,
+      "features": [
+        "Logs",
+        "Incidents/Cases"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas BUG_REPORT_2026-08-06.md",
+      "path": "reports/2026-08-06_Emil Thomas BUG_REPORT_2026-08-06.md",
+      "bugsFound": 2,
+      "features": [
+        "Logs",
+        "Monitors",
+        "Incidents/Cases",
+        "Security Headers"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "DevTools inspection"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "DevTools evidence"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "tester": "Mubarak Mohammed",
+      "filename": "Mubarak_Mohammed_Bug_report_2026-08-06 (1).md",
+      "path": "reports/2026-08-06_Mubarak_Mohammed_Bug_report_2026-08-06 (1).md",
+      "bugsFound": 1,
+      "features": [
+        "On-call scheduling",
+        "Incidents/Cases"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "tester": "Vikki Hirapure",
+      "filename": "Vikki_Hirapure_BUG_REPORT_2026-08-06.md",
+      "path": "reports/2026-08-06_Vikki_Hirapure_BUG_REPORT_2026-08-06.md",
+      "bugsFound": 3,
+      "features": [
+        "Threat Intelligence",
+        "Context Assets"
+      ],
+      "methods": [
+        "GUI testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-8-7.md",
+      "path": "reports/2026-08-07_Angel-Thomas_report_26-8-7.md",
+      "bugsFound": 1,
+      "features": [
+        "Monitors",
+        "Status Pages",
+        "Incidents/Cases"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas BUG_REPORT_2026-08-07.md",
+      "path": "reports/2026-08-07_Emil Thomas BUG_REPORT_2026-08-07.md",
+      "bugsFound": 1,
+      "features": [
+        "Monitors"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "DevTools inspection"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis",
+        "DevTools evidence"
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "tester": "Vikki Hirapure",
+      "filename": "vikki_2026-08-07 (1).md",
+      "path": "reports/2026-08-07_vikki_2026-08-07 (1).md",
+      "bugsFound": 1,
+      "features": [
+        "Context Assets",
+        "API Tokens"
+      ],
+      "methods": [
+        "API testing",
+        "Security testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Security testing",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-8-10.md",
+      "path": "reports/2026-08-10_Angel-Thomas_report_26-8-10.md",
+      "bugsFound": 1,
+      "features": [
+        "Monitors",
+        "AI Analyst",
+        "Host Installation"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis",
+        "On-host runtime testing"
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas HOST_FEATURE_TEST_REPORT_2026-08-10.md",
+      "path": "reports/2026-08-10_Emil Thomas HOST_FEATURE_TEST_REPORT_2026-08-10.md",
+      "bugsFound": 0,
+      "features": [
+        "Logs",
+        "AI Analyst",
+        "Host Installation",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "On-host testing",
+        "Static analysis",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "On-host runtime testing"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-08-11 (1).md",
+      "path": "reports/2026-08-11_Angel-Thomas_report_26-08-11 (1).md",
+      "bugsFound": 2,
+      "features": [
+        "AI Analyst",
+        "Host Installation",
+        "Security Headers",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Security testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Security testing",
+        "Fix recommendations"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas Bug Verification Report 2026-08-11.md",
+      "path": "reports/2026-08-11_Emil Thomas Bug Verification Report 2026-08-11.md",
+      "bugsFound": 10,
+      "features": [
+        "On-call scheduling",
+        "Monitors",
+        "AI Analyst",
+        "Host Installation",
+        "Status Pages",
+        "Webhooks",
+        "Metric Alerts",
+        "Incidents/Cases",
+        "API Tokens",
+        "OpenAPI/Version"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "On-host testing",
+        "Static analysis",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Retest/verification",
+        "Fix recommendations",
+        "On-host runtime testing",
+        "Static analysis"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "tester": "Mubarak Mohammed",
+      "filename": "Mubarak_Mohammed_AI_Analyst_Bug_report_2026-08-11 (2).md",
+      "path": "reports/2026-08-11_Mubarak_Mohammed_AI_Analyst_Bug_report_2026-08-11 (2).md",
+      "bugsFound": 1,
+      "features": [
+        "AI Analyst",
+        "Incidents/Cases",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "DevTools inspection",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "tester": "Vikki Hirapure",
+      "filename": "3.Vickky-BUG-035-to-051-RETEST-REPORT-2026-08-11.md",
+      "path": "reports/2026-08-11_3.Vickky-BUG-035-to-051-RETEST-REPORT-2026-08-11.md",
+      "bugsFound": 15,
+      "features": [
+        "Logs",
+        "Monitors",
+        "AI Analyst",
+        "Status Pages",
+        "Security Headers",
+        "API Tokens",
+        "Alerts (Telegram/SMS)",
+        "OpenAPI/Version"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Security testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Security testing",
+        "Retest/verification"
+      ]
+    }
+  ]
+}
