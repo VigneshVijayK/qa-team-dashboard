@@ -178,23 +178,28 @@ body {
 
 .theme-icon {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 /* Auto mode: show 🖥️ (monitor icon) */
-[data-theme-pref="auto"] .theme-icon-auto { opacity: 1; transform: rotate(0) scale(1); }
-[data-theme-pref="auto"] .theme-icon-dark { opacity: 0; transform: rotate(180) scale(0); }
-[data-theme-pref="auto"] .theme-icon-light { opacity: 0; transform: rotate(-180) scale(0); }
+[data-theme-pref="auto"] .theme-icon-auto { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1); }
+[data-theme-pref="auto"] .theme-icon-dark { opacity: 0; transform: translate(-50%, -50%) rotate(180) scale(0); }
+[data-theme-pref="auto"] .theme-icon-light { opacity: 0; transform: translate(-50%, -50%) rotate(-180) scale(0); }
 
 /* Dark mode: show 🌙 (moon) */
-[data-theme-pref="dark"] .theme-icon-auto { opacity: 0; transform: rotate(-180) scale(0); }
-[data-theme-pref="dark"] .theme-icon-dark { opacity: 1; transform: rotate(0) scale(1); }
-[data-theme-pref="dark"] .theme-icon-light { opacity: 0; transform: rotate(180) scale(0); }
+[data-theme-pref="dark"] .theme-icon-auto { opacity: 0; transform: translate(-50%, -50%) rotate(-180) scale(0); }
+[data-theme-pref="dark"] .theme-icon-dark { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1); }
+[data-theme-pref="dark"] .theme-icon-light { opacity: 0; transform: translate(-50%, -50%) rotate(180) scale(0); }
 
 /* Light mode: show ☀️ (sun) */
-[data-theme-pref="light"] .theme-icon-auto { opacity: 0; transform: rotate(180) scale(0); }
-[data-theme-pref="light"] .theme-icon-dark { opacity: 0; transform: rotate(-180) scale(0); }
-[data-theme-pref="light"] .theme-icon-light { opacity: 1; transform: rotate(0) scale(1); }
+[data-theme-pref="light"] .theme-icon-auto { opacity: 0; transform: translate(-50%, -50%) rotate(180) scale(0); }
+[data-theme-pref="light"] .theme-icon-dark { opacity: 0; transform: translate(-50%, -50%) rotate(-180) scale(0); }
+[data-theme-pref="light"] .theme-icon-light { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1); }
 
 .admin-badge,
 .updated-badge {
