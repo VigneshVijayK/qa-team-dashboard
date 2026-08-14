@@ -179,10 +179,20 @@ function parseReport(filePath, folderDate) {
 
   if (/consolidated/i.test(basename)) return null;
 
-  // Extract tester — handles "Tester:", "**Tester:**", "Tested by:", "**Tested by:**"
+  // Extract tester — handles three label formats:
+  //   1) "Tester: <name>", "**Tester:** <name>"
+  //   2) "Tested by: <name>", "**Tested by:** <name>"
+  //   3) Markdown table row: "| **Reporter** | <name> |"
   const testerMatch = content.match(/^\*{0,2}(?:Tester|Tested by)\*{0,2}:\*{0,2}\s*(.+)$/im);
-  if (!testerMatch) return null;
-  const rawTester = extractTesterName(testerMatch[1]);
+  let testerValue = testerMatch ? testerMatch[1] : null;
+
+  if (!testerValue) {
+    const tableMatch = content.match(/^\|\s*\*{0,2}Reporter\*{0,2}\s*\|\s*(.+?)\s*\|/im);
+    if (tableMatch) testerValue = tableMatch[1];
+  }
+
+  if (!testerValue) return null;
+  const rawTester = extractTesterName(testerValue);
 
   if (/vignesh/i.test(rawTester)) return null;
 
