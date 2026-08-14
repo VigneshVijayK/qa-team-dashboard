@@ -1,6 +1,6 @@
 {
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-14T21:33:07.451Z",
+  "generatedAt": "2026-08-14T22:05:49.085Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -38,10 +38,12 @@
         "lowMedium": 1,
         "low": 12
       },
-      "score": 297,
+      "score": 321,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
+        "Audit Log",
+        "Billing",
         "Host Installation",
         "Incidents/Cases",
         "Logs",
@@ -79,10 +81,7 @@
           "date": "2026-08-06",
           "bugsFound": 2,
           "features": [
-            "Logs",
-            "Monitors",
-            "Incidents/Cases",
-            "Security Headers"
+            "Logs"
           ],
           "methods": [
             "GUI testing",
@@ -133,8 +132,7 @@
           "features": [
             "Logs",
             "AI Analyst",
-            "Host Installation",
-            "API Tokens"
+            "Host Installation"
           ],
           "methods": [
             "GUI testing",
@@ -160,7 +158,7 @@
           "bugsFound": 10,
           "features": [
             "On-call scheduling",
-            "Monitors",
+            "Logs",
             "AI Analyst",
             "Host Installation",
             "Status Pages",
@@ -168,7 +166,8 @@
             "Metric Alerts",
             "Incidents/Cases",
             "API Tokens",
-            "OpenAPI/Version"
+            "OpenAPI/Version",
+            "Billing"
           ],
           "methods": [
             "GUI testing",
@@ -198,6 +197,7 @@
           "date": "2026-08-12",
           "bugsFound": 2,
           "features": [
+            "Logs",
             "Monitors",
             "AI Analyst",
             "Host Installation",
@@ -230,14 +230,15 @@
           "date": "2026-08-13",
           "bugsFound": 10,
           "features": [
+            "Logs",
             "Monitors",
             "AI Analyst",
             "Host Installation",
             "Status Pages",
             "Incidents/Cases",
-            "Security Headers",
             "API Tokens",
-            "OpenAPI/Version"
+            "OpenAPI/Version",
+            "Audit Log"
           ],
           "methods": [
             "GUI testing",
@@ -268,10 +269,11 @@
           "date": "2026-08-14",
           "bugsFound": 5,
           "features": [
-            "Monitors",
+            "Logs",
             "Host Installation",
             "Webhooks",
-            "API Tokens"
+            "API Tokens",
+            "Audit Log"
           ],
           "methods": [
             "GUI testing",
@@ -319,11 +321,12 @@
         "lowMedium": 0,
         "low": 9
       },
-      "score": 295,
+      "score": 307,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
         "Alerts (Telegram/SMS)",
+        "Billing",
         "Host Installation",
         "Incidents/Cases",
         "Logs",
@@ -359,8 +362,7 @@
           "date": "2026-08-06",
           "bugsFound": 1,
           "features": [
-            "On-call scheduling",
-            "Incidents/Cases"
+            "On-call scheduling"
           ],
           "methods": [
             "GUI testing",
@@ -383,8 +385,7 @@
           "bugsFound": 1,
           "features": [
             "Monitors",
-            "Status Pages",
-            "Incidents/Cases"
+            "Status Pages"
           ],
           "methods": [
             "GUI testing",
@@ -406,7 +407,6 @@
           "date": "2026-08-10",
           "bugsFound": 1,
           "features": [
-            "Monitors",
             "AI Analyst",
             "Host Installation"
           ],
@@ -463,7 +463,8 @@
             "Monitors",
             "AI Analyst",
             "Webhooks",
-            "API Tokens"
+            "API Tokens",
+            "Billing"
           ],
           "methods": [
             "GUI testing",
@@ -491,7 +492,6 @@
             "Host Installation",
             "Status Pages",
             "Webhooks",
-            "Incidents/Cases",
             "API Tokens",
             "Alerts (Telegram/SMS)",
             "OpenAPI/Version"
@@ -583,13 +583,13 @@
         "AI Analyst",
         "API Tokens",
         "Alerts (Telegram/SMS)",
+        "Audit Log",
         "Context Assets",
         "Host Installation",
         "Incidents/Cases",
         "Logs",
         "Monitors",
         "OpenAPI/Version",
-        "Security Headers",
         "Status Pages",
         "Threat Intelligence",
         "Webhooks"
@@ -670,7 +670,6 @@
             "Monitors",
             "AI Analyst",
             "Status Pages",
-            "Security Headers",
             "API Tokens",
             "Alerts (Telegram/SMS)",
             "OpenAPI/Version"
@@ -702,7 +701,6 @@
             "Monitors",
             "AI Analyst",
             "Webhooks",
-            "Incidents/Cases",
             "API Tokens",
             "Alerts (Telegram/SMS)"
           ],
@@ -732,9 +730,7 @@
           "date": "2026-08-13",
           "bugsFound": 1,
           "features": [
-            "Logs",
-            "Monitors",
-            "Incidents/Cases"
+            "Logs"
           ],
           "methods": [
             "GUI testing",
@@ -785,11 +781,12 @@
           "date": "2026-08-14",
           "bugsFound": 0,
           "features": [
-            "Monitors",
+            "Logs",
             "AI Analyst",
             "Host Installation",
             "Incidents/Cases",
-            "API Tokens"
+            "API Tokens",
+            "Audit Log"
           ],
           "methods": [
             "GUI testing",
@@ -829,11 +826,13 @@
         "lowMedium": 0,
         "low": 5
       },
-      "score": 245,
+      "score": 269,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
         "Alerts (Telegram/SMS)",
+        "Audit Log",
+        "Billing",
         "Host Installation",
         "Incidents/Cases",
         "Logs",
@@ -866,8 +865,7 @@
           "date": "2026-08-06",
           "bugsFound": 1,
           "features": [
-            "Logs",
-            "Incidents/Cases"
+            "Logs"
           ],
           "methods": [
             "GUI testing",
@@ -900,7 +898,8 @@
             "Status Pages",
             "Incidents/Cases",
             "API Tokens",
-            "OpenAPI/Version"
+            "OpenAPI/Version",
+            "Audit Log"
           ],
           "methods": [
             "GUI testing",
@@ -929,7 +928,8 @@
           "date": "2026-08-14",
           "bugsFound": 1,
           "features": [
-            "Logs"
+            "Logs",
+            "Audit Log"
           ],
           "methods": [
             "GUI testing"
@@ -949,10 +949,10 @@
           "date": "2026-08-14",
           "bugsFound": 0,
           "features": [
-            "Monitors",
             "AI Analyst",
             "Host Installation",
-            "Status Pages"
+            "Status Pages",
+            "Billing"
           ],
           "methods": [
             "GUI testing"
@@ -970,10 +970,9 @@
           "date": "2026-08-14",
           "bugsFound": 0,
           "features": [
-            "Monitors",
+            "Logs",
             "Status Pages",
             "Webhooks",
-            "Incidents/Cases",
             "API Tokens",
             "Alerts (Telegram/SMS)",
             "OpenAPI/Version"
@@ -1018,10 +1017,9 @@
         "lowMedium": 0,
         "low": 4
       },
-      "score": 185,
+      "score": 173,
       "featuresCovered": [
         "AI Analyst",
-        "API Tokens",
         "Incidents/Cases",
         "Logs",
         "Metric Alerts",
@@ -1047,8 +1045,7 @@
           "date": "2026-08-06",
           "bugsFound": 1,
           "features": [
-            "On-call scheduling",
-            "Incidents/Cases"
+            "On-call scheduling"
           ],
           "methods": [
             "GUI testing",
@@ -1070,9 +1067,7 @@
           "date": "2026-08-11",
           "bugsFound": 1,
           "features": [
-            "AI Analyst",
-            "Incidents/Cases",
-            "API Tokens"
+            "AI Analyst"
           ],
           "methods": [
             "GUI testing",
@@ -1175,8 +1170,7 @@
       "path": "reports/2026-08-06_Angel-Thomas_report_26-8-6.md",
       "bugsFound": 1,
       "features": [
-        "On-call scheduling",
-        "Incidents/Cases"
+        "On-call scheduling"
       ],
       "methods": [
         "GUI testing",
@@ -1194,8 +1188,7 @@
       "path": "reports/2026-08-06_Anubhav_Report_2026-08-06.md",
       "bugsFound": 1,
       "features": [
-        "Logs",
-        "Incidents/Cases"
+        "Logs"
       ],
       "methods": [
         "GUI testing",
@@ -1216,10 +1209,7 @@
       "path": "reports/2026-08-06_Emil Thomas BUG_REPORT_2026-08-06.md",
       "bugsFound": 2,
       "features": [
-        "Logs",
-        "Monitors",
-        "Incidents/Cases",
-        "Security Headers"
+        "Logs"
       ],
       "methods": [
         "GUI testing",
@@ -1240,8 +1230,7 @@
       "path": "reports/2026-08-06_Mubarak_Mohammed_Bug_report_2026-08-06 (1).md",
       "bugsFound": 1,
       "features": [
-        "On-call scheduling",
-        "Incidents/Cases"
+        "On-call scheduling"
       ],
       "methods": [
         "GUI testing",
@@ -1278,8 +1267,7 @@
       "bugsFound": 1,
       "features": [
         "Monitors",
-        "Status Pages",
-        "Incidents/Cases"
+        "Status Pages"
       ],
       "methods": [
         "GUI testing",
@@ -1339,7 +1327,6 @@
       "path": "reports/2026-08-10_Angel-Thomas_report_26-8-10.md",
       "bugsFound": 1,
       "features": [
-        "Monitors",
         "AI Analyst",
         "Host Installation"
       ],
@@ -1362,8 +1349,7 @@
       "features": [
         "Logs",
         "AI Analyst",
-        "Host Installation",
-        "API Tokens"
+        "Host Installation"
       ],
       "methods": [
         "GUI testing",
@@ -1410,7 +1396,7 @@
       "bugsFound": 10,
       "features": [
         "On-call scheduling",
-        "Monitors",
+        "Logs",
         "AI Analyst",
         "Host Installation",
         "Status Pages",
@@ -1418,7 +1404,8 @@
         "Metric Alerts",
         "Incidents/Cases",
         "API Tokens",
-        "OpenAPI/Version"
+        "OpenAPI/Version",
+        "Billing"
       ],
       "methods": [
         "GUI testing",
@@ -1444,9 +1431,7 @@
       "path": "reports/2026-08-11_Mubarak_Mohammed_AI_Analyst_Bug_report_2026-08-11 (2).md",
       "bugsFound": 1,
       "features": [
-        "AI Analyst",
-        "Incidents/Cases",
-        "API Tokens"
+        "AI Analyst"
       ],
       "methods": [
         "GUI testing",
@@ -1469,7 +1454,6 @@
         "Monitors",
         "AI Analyst",
         "Status Pages",
-        "Security Headers",
         "API Tokens",
         "Alerts (Telegram/SMS)",
         "OpenAPI/Version"
@@ -1497,7 +1481,8 @@
         "Monitors",
         "AI Analyst",
         "Webhooks",
-        "API Tokens"
+        "API Tokens",
+        "Billing"
       ],
       "methods": [
         "GUI testing",
@@ -1524,7 +1509,8 @@
         "Status Pages",
         "Incidents/Cases",
         "API Tokens",
-        "OpenAPI/Version"
+        "OpenAPI/Version",
+        "Audit Log"
       ],
       "methods": [
         "GUI testing",
@@ -1549,6 +1535,7 @@
       "path": "reports/2026-08-12_Emil Thomas bugs verification 2026-08-12.md",
       "bugsFound": 2,
       "features": [
+        "Logs",
         "Monitors",
         "AI Analyst",
         "Host Installation",
@@ -1599,7 +1586,6 @@
         "Monitors",
         "AI Analyst",
         "Webhooks",
-        "Incidents/Cases",
         "API Tokens",
         "Alerts (Telegram/SMS)"
       ],
@@ -1630,7 +1616,6 @@
         "Host Installation",
         "Status Pages",
         "Webhooks",
-        "Incidents/Cases",
         "API Tokens",
         "Alerts (Telegram/SMS)",
         "OpenAPI/Version"
@@ -1658,14 +1643,15 @@
       "path": "reports/2026-08-13_Emil Thomas bugs verification 2026-08-13.md",
       "bugsFound": 10,
       "features": [
+        "Logs",
         "Monitors",
         "AI Analyst",
         "Host Installation",
         "Status Pages",
         "Incidents/Cases",
-        "Security Headers",
         "API Tokens",
-        "OpenAPI/Version"
+        "OpenAPI/Version",
+        "Audit Log"
       ],
       "methods": [
         "GUI testing",
@@ -1716,9 +1702,7 @@
       "path": "reports/2026-08-13_Vikki-Hirapure_report_26-8-13.md",
       "bugsFound": 1,
       "features": [
-        "Logs",
-        "Monitors",
-        "Incidents/Cases"
+        "Logs"
       ],
       "methods": [
         "GUI testing",
@@ -1769,7 +1753,8 @@
       "path": "reports/2026-08-14_AUDIT_LOG_TESTING_REPORT_2026-08-14.md",
       "bugsFound": 1,
       "features": [
-        "Logs"
+        "Logs",
+        "Audit Log"
       ],
       "methods": [
         "GUI testing"
@@ -1785,10 +1770,10 @@
       "path": "reports/2026-08-14_BILLING_FEATURE_TESTING_REPORT_2026-08-15.md",
       "bugsFound": 0,
       "features": [
-        "Monitors",
         "AI Analyst",
         "Host Installation",
-        "Status Pages"
+        "Status Pages",
+        "Billing"
       ],
       "methods": [
         "GUI testing"
@@ -1802,10 +1787,9 @@
       "path": "reports/2026-08-14_log_alerts_bug_analysis.md",
       "bugsFound": 0,
       "features": [
-        "Monitors",
+        "Logs",
         "Status Pages",
         "Webhooks",
-        "Incidents/Cases",
         "API Tokens",
         "Alerts (Telegram/SMS)",
         "OpenAPI/Version"
@@ -1829,10 +1813,11 @@
       "path": "reports/2026-08-14_Emil Thomas bugs verification 2026-08-14.md",
       "bugsFound": 5,
       "features": [
-        "Monitors",
+        "Logs",
         "Host Installation",
         "Webhooks",
-        "API Tokens"
+        "API Tokens",
+        "Audit Log"
       ],
       "methods": [
         "GUI testing",
@@ -1900,11 +1885,12 @@
       "path": "reports/2026-08-14_Vikki-Sensor-Offline-After-Restart-BUG-2026-08-14.md",
       "bugsFound": 0,
       "features": [
-        "Monitors",
+        "Logs",
         "AI Analyst",
         "Host Installation",
         "Incidents/Cases",
-        "API Tokens"
+        "API Tokens",
+        "Audit Log"
       ],
       "methods": [
         "GUI testing",

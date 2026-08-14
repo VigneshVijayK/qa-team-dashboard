@@ -42,23 +42,27 @@ const WEIGHTS = {
 };
 
 // Known product features/areas — matched case-insensitively against text.
+// Patterns are deliberately scoped (paths, page names, feature titles) so a
+// casual mention (e.g. "free plan: 3 monitors") does NOT count as coverage.
 const FEATURE_KEYWORDS = [
-  { key: 'On-call scheduling',    patterns: ['on-call', 'on call', 'rotation', 'schedule'] },
-  { key: 'Logs',                  patterns: ['logs page', 'live tail', 'log ingest', 'saved search'] },
-  { key: 'Monitors',              patterns: ['monitor', 'keyword', 'httpbin', 'uptime'] },
-  { key: 'AI Analyst',            patterns: ['ai analyst', 'llm', 'verdict', 'openrouter'] },
+  { key: 'On-call scheduling',    patterns: ['on-call', 'on call', 'rotation'] },
+  { key: 'Logs',                  patterns: ['logs page', 'live tail', 'log ingest', 'saved search', '/logs', 'logs search', 'log alerts', 'audit log'] },
+  { key: 'Monitors',              patterns: ['/monitors', 'monitors page', 'monitor type', 'keyword monitor', 'http monitor', 'create a monitor', 'monitor ss', 'bulk monitor'] },
+  { key: 'AI Analyst',            patterns: ['ai analyst', 'llm', 'verdict', 'openrouter', '/analyst'] },
   { key: 'Threat Intelligence',   patterns: ['threat intel', 'custom indicator', 'ioc'] },
   { key: 'Context Assets',        patterns: ['context asset', 'context entity', 'neighborhood'] },
-  { key: 'Host Installation',     patterns: ['host install', 'host enroll', 'docker container', 'install.sh', 'sensor'] },
-  { key: 'Status Pages',          patterns: ['status page', 'status-page'] },
+  { key: 'Host Installation',     patterns: ['host install', 'host enroll', 'enrollment', 'install.sh', 'agent install', 'sensor', 'alloy'] },
+  { key: 'Status Pages',          patterns: ['status page', 'status-page', '/status-pages'] },
   { key: 'Webhooks',              patterns: ['webhook'] },
   { key: 'Metric Alerts',         patterns: ['metric alert', 'metric-alert'] },
-  { key: 'Incidents/Cases',       patterns: ['incident', 'cases'] },
-  { key: 'Security Headers',      patterns: ['content-security-policy', 'csp', '/metrics', 'security header'] },
-  { key: 'API Tokens',            patterns: ['token', 'bulk revoke', 'pat'] },
+  { key: 'Incidents/Cases',       patterns: ['/incidents', 'incident detail', 'incident id', 'incidents list', 'cases:', 'case detail'] },
+  { key: 'Security Headers',      patterns: ['content-security-policy', 'csp header', '/metrics endpoint', 'security header'] },
+  { key: 'API Tokens',            patterns: ['token', 'bulk revoke', 'pat '] },
   { key: 'ATT&CK Coverage',       patterns: ['attack coverage', 'att&ck'] },
-  { key: 'Alerts (Telegram/SMS)', patterns: ['telegram', 'sms', 'voice alert', 'twilio'] },
+  { key: 'Alerts (Telegram/SMS)', patterns: ['telegram', 'sms alert', 'voice alert', 'twilio'] },
   { key: 'OpenAPI/Version',       patterns: ['openapi.json', '/version', 'openapi spec'] },
+  { key: 'Billing',               patterns: ['billing', 'plan limit', 'subscription', 'invoice', 'free plan limit'] },
+  { key: 'Audit Log',             patterns: ['audit log', 'audit-log', '/audit'] },
 ];
 
 // Testing methods — detected from Method: line and report text.
@@ -105,6 +109,10 @@ const NAME_MAP = {
 
 function normaliseSeverity(raw) {
   const s = raw.trim().toLowerCase().replace(/\s+/g, '');
+  // P0–P4 priority labels → severity buckets
+  if (/^p[012]$/.test(s)) return 'critical';
+  if (/^p3$/.test(s)) return 'medium';
+  if (/^p[45]$/.test(s)) return 'low';
   if (s === 'critical' || s === 'crit') return 'critical';
   if (s === 'high') return 'high';
   if (s === 'medium' || s === 'med') return 'medium';
@@ -219,7 +227,7 @@ function parseReport(filePath, folderDate) {
         if (cells.every((c) => /^[-:]+$/.test(c))) continue;
         if (severityColIdx >= 0 && cells[severityColIdx]) {
           const val = cells[severityColIdx];
-          if (/^(critical|high|medium|low|low[-–]medium)/i.test(val)) {
+          if (/^(critical|high|medium|low|low[-–]medium|p[0-5])/i.test(val)) {
             severities.push(normaliseSeverity(val));
             tableSeverityCount++;
           }
