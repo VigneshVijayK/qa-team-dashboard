@@ -1,6 +1,6 @@
 {
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-14T22:05:49.085Z",
+  "generatedAt": "2026-08-15T09:45:58.708Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -321,7 +321,7 @@
         "lowMedium": 0,
         "low": 9
       },
-      "score": 307,
+      "score": 319,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
@@ -329,6 +329,7 @@
         "Billing",
         "Host Installation",
         "Incidents/Cases",
+        "Log Alerts",
         "Logs",
         "Metric Alerts",
         "Monitors",
@@ -530,7 +531,8 @@
             "Metric Alerts",
             "Incidents/Cases",
             "API Tokens",
-            "OpenAPI/Version"
+            "OpenAPI/Version",
+            "Log Alerts"
           ],
           "methods": [
             "GUI testing",
@@ -826,7 +828,7 @@
         "lowMedium": 0,
         "low": 5
       },
-      "score": 269,
+      "score": 281,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
@@ -835,6 +837,7 @@
         "Billing",
         "Host Installation",
         "Incidents/Cases",
+        "Log Alerts",
         "Logs",
         "Monitors",
         "On-call scheduling",
@@ -899,7 +902,8 @@
             "Incidents/Cases",
             "API Tokens",
             "OpenAPI/Version",
-            "Audit Log"
+            "Audit Log",
+            "Log Alerts"
           ],
           "methods": [
             "GUI testing",
@@ -970,12 +974,12 @@
           "date": "2026-08-14",
           "bugsFound": 0,
           "features": [
-            "Logs",
             "Status Pages",
             "Webhooks",
             "API Tokens",
             "Alerts (Telegram/SMS)",
-            "OpenAPI/Version"
+            "OpenAPI/Version",
+            "Log Alerts"
           ],
           "methods": [
             "GUI testing",
@@ -1510,7 +1514,8 @@
         "Incidents/Cases",
         "API Tokens",
         "OpenAPI/Version",
-        "Audit Log"
+        "Audit Log",
+        "Log Alerts"
       ],
       "methods": [
         "GUI testing",
@@ -1727,7 +1732,8 @@
         "Metric Alerts",
         "Incidents/Cases",
         "API Tokens",
-        "OpenAPI/Version"
+        "OpenAPI/Version",
+        "Log Alerts"
       ],
       "methods": [
         "GUI testing",
@@ -1787,12 +1793,12 @@
       "path": "reports/2026-08-14_log_alerts_bug_analysis.md",
       "bugsFound": 0,
       "features": [
-        "Logs",
         "Status Pages",
         "Webhooks",
         "API Tokens",
         "Alerts (Telegram/SMS)",
-        "OpenAPI/Version"
+        "OpenAPI/Version",
+        "Log Alerts"
       ],
       "methods": [
         "GUI testing",

@@ -46,7 +46,7 @@ const WEIGHTS = {
 // casual mention (e.g. "free plan: 3 monitors") does NOT count as coverage.
 const FEATURE_KEYWORDS = [
   { key: 'On-call scheduling',    patterns: ['on-call', 'on call', 'rotation'] },
-  { key: 'Logs',                  patterns: ['logs page', 'live tail', 'log ingest', 'saved search', '/logs', 'logs search', 'log alerts', 'audit log'] },
+  { key: 'Logs',                  patterns: ['logs page', 'live tail', 'log ingest', 'saved search', '/logs', 'logs search'] },
   { key: 'Monitors',              patterns: ['/monitors', 'monitors page', 'monitor type', 'keyword monitor', 'http monitor', 'create a monitor', 'monitor ss', 'bulk monitor'] },
   { key: 'AI Analyst',            patterns: ['ai analyst', 'llm', 'verdict', 'openrouter', '/analyst'] },
   { key: 'Threat Intelligence',   patterns: ['threat intel', 'custom indicator', 'ioc'] },
@@ -63,6 +63,7 @@ const FEATURE_KEYWORDS = [
   { key: 'OpenAPI/Version',       patterns: ['openapi.json', '/version', 'openapi spec'] },
   { key: 'Billing',               patterns: ['billing', 'plan limit', 'subscription', 'invoice', 'free plan limit'] },
   { key: 'Audit Log',             patterns: ['audit log', 'audit-log', '/audit'] },
+  { key: 'Log Alerts',            patterns: ['log alert', 'log-alert', 'logalerts_list', 'log alerts rule', '/log-alerts'] },
 ];
 
 // Testing methods — detected from Method: line and report text.
