@@ -1,0 +1,179 @@
+﻿================================================================================
+  24observe - EXPLORE (LOGS SEARCH) UNION INJECTION TEST
+Tester: Anubhav 
+  Date: 2026-08-13 | API Key: Phase-1.2 (obs_kUbK31jN...)
+  URL: https://login.24observe.com/explore
+  API: GET /api/v1/logs/search
+================================================================================
+
+================================================================================
+  TEST VECTORS & RESULTS
+================================================================================
+
+--- 1. CLASSIC SQL UNION INJECTION (query parameter) ---
+
+[BLOCKED] level:error' UNION SELECT * FROM users--
+  -> 400 KQL_PARSE_ERROR "unexpected character ''' at position 11"
+  Single quotes are rejected by the KQL parser.
+
+[BLOCKED] level:error' UNION SELECT 1,2,3,4,5,6,7,8--
+  -> 400 KQL_PARSE_ERROR "unexpected character ''' at position 11"
+
+[BLOCKED] level:error' UNION SELECT NULL,NULL,NULL--
+  -> 400 KQL_PARSE_ERROR "unexpected character ''' at position 11"
+
+[BLOCKED] level:error UNION SELECT 1,2,3,4,5,6,7,8--
+  -> 400 KQL_PARSE_ERROR "expected a term, got comma"
+  Commas in the SELECT list are rejected.
+
+[BLOCKED] level:error UNION SELECT NULL,NULL,NULL--
+  -> 400 KQL_PARSE_ERROR "expected a term, got comma"
+
+[NO ERROR - SAFE] level:error UNION SELECT * FROM users--
+  -> 200 OK, 0 events (treated as literal substring search, no injection)
+  The KQL parser treats "UNION SELECT * FROM users" as bare terms
+  (substring match on message field). No SQL executed.
+
+--- 2. BOOLEAN-BASED INJECTION ---
+
+[BLOCKED] level:error OR 1=1
+  -> 400 KQL_PARSE_ERROR "unknown field '1' (allowed: service, level, host,
+     source, message, ingest_pat_id, attrs.<key>)"
+  The parser validates field names against a whitelist.
+
+[BLOCKED] level:error OR 1=1--
+  -> 400 KQL_PARSE_ERROR "unknown field '1'"
+
+[BLOCKED] level:error AND 1=1
+  -> 400 KQL_PARSE_ERROR "unknown field '1'"
+
+[BLOCKED] level:error AND 1=1--
+  -> 400 KQL_PARSE_ERROR "unknown field '1'"
+
+[BLOCKED] level:error OR '1'='1'
+  -> 400 KQL_PARSE_ERROR "unexpected character ''' at position 15"
+  Single quotes rejected.
+
+--- 3. STACKED QUERIES ---
+
+[BLOCKED] level:error; DROP TABLE users--
+  -> 400 KQL_PARSE_ERROR "unexpected character ';' at position 11"
+  Semicolons are rejected at the parser level.
+
+[BLOCKED] level:error; WAITFOR DELAY '00:00:05'--
+  -> 400 KQL_PARSE_ERROR "unexpected character ';' at position 11"
+
+[BLOCKED] level:error; SELECT pg_sleep(5)--
+  -> 400 KQL_PARSE_ERROR "unexpected character ';' at position 11"
+
+--- 4. TIME-BASED INJECTION ---
+
+[NO ERROR - SAFE] level:error AND SLEEP(5)
+  -> 200 OK, 0 events, tookMs: 25ms (no delay)
+  "SLEEP(5)" treated as bare term substring search. No SQL execution.
+
+[BLOCKED] level:error' OR SLEEP(5)--
+  -> 400 KQL_PARSE_ERROR "unexpected character ''' at position 11"
+
+--- 5. q PARAMETER (SUBSTRING SEARCH) ---
+
+[NO ERROR - SAFE] q=ECONNREFUSED' UNION SELECT * FROM users--
+  -> 200 OK, 0 events (literal substring, no injection)
+
+[NO ERROR - SAFE] q=ECONNREFUSED; DROP TABLE users--
+  -> 200 OK, 0 events (literal substring, no injection)
+
+[NO ERROR - SAFE] q=ECONNREFUSED' OR '1'='1
+  -> 200 OK, 0 events (literal substring, no injection)
+
+[NO ERROR - SAFE] q=ECONNREFUSED OR 1=1
+  -> 200 OK, 0 events (literal substring, no injection)
+
+  The ?q= parameter treats ALL input as a literal substring. No parsing,
+  no injection possible.
+
+--- 6. OTHER PARAMETERS ---
+
+[BLOCKED] level=error' OR '1'='1
+  -> 400 "querystring/level must be equal to one of the allowed values"
+  Strict enum validation on level parameter.
+
+[BLOCKED] service=web-api' OR '1'='1
+  -> 200 OK, 0 events (treated as literal service name, no match)
+
+[BLOCKED] from=2026-08-06T00:00:00Z' OR '1'='1
+  -> 400 "querystring/from must match format \"date-time\""
+  Strict date-time format validation.
+
+[NO ERROR - SAFE] cursor=1' UNION SELECT * FROM users--
+  -> 200 OK, 0 events (invalid cursor, safe)
+
+--- 7. ERROR-BASED / INFORMATION DISCLOSURE ---
+
+[INFO] Error messages are clean and don't leak schema info:
+  - "KQL parse error: unexpected character 'X' at position N"
+  - "unknown field 'X' (allowed: service, level, host, source, message,
+     ingest_pat_id, attrs.<key>)"
+  - "querystring/level must be equal to one of the allowed values"
+  - "querystring/from must match format \"date-time\""
+
+  The whitelist of allowed fields IS disclosed in error messages, which
+  is a minor information leak but not exploitable.
+
+================================================================================
+  BUGS & VULNERABILITIES FOUND
+================================================================================
+
+  --- FINDING #1 [INFO] UNION SELECT silently treated as substring ---
+  Payload: level:error UNION SELECT * FROM users--
+  Result: 200 OK, 0 events. No error, no injection.
+  The KQL parser treats "UNION", "SELECT", "*", "FROM", "users" as bare
+  term tokens (substring match on message field). This is safe behavior
+  but could mask injection attempts during testing.
+
+  --- FINDING #2 [INFO] Field whitelist disclosed in error messages ---
+  Error: "unknown field '1' (allowed: service, level, host, source,
+  message, ingest_pat_id, attrs.<key>)"
+  This reveals the internal column names to an attacker. Low risk since
+  the KQL parser prevents exploitation anyway.
+
+================================================================================
+  WHAT'S WORKING CORRECTLY (NOT VULNERABLE)
+================================================================================
+
+  - Single quotes: REJECTED by KQL parser (prevents string termination)
+  - Semicolons: REJECTED by KQL parser (prevents stacked queries)
+  - Commas in SELECT lists: REJECTED (prevents UNION column enumeration)
+  - Numeric field names (1=1): REJECTED (field whitelist validation)
+  - Time-based functions (SLEEP, WAITFOR, pg_sleep): No execution
+  - ?q= parameter: Pure literal substring, no parsing at all
+  - ?level= parameter: Strict enum validation
+  - ?from=/ ?to= parameters: Strict date-time format validation
+  - ?cursor= parameter: Safe, no injection surface
+  - Error messages: Clean, no stack traces or schema dumps
+  - Auth: All endpoints require valid Bearer token
+
+================================================================================
+  SEVERITY SUMMARY
+================================================================================
+
+  CRITICAL: 0
+  HIGH:     0
+  MEDIUM:   0
+  LOW:      0
+  INFO:     2  (UNION silently treated as substring, field whitelist in errors)
+
+================================================================================
+  OVERALL RISK RATING: SAFE (NO SQL INJECTION POSSIBLE)
+================================================================================
+
+  The KQL-lite parser is extremely well-designed for injection prevention:
+  - Single quotes are rejected at the tokenizer level
+  - Semicolons are rejected (no stacked queries)
+  - Field names are validated against a strict whitelist
+  - The ?q= parameter bypasses the parser entirely (literal substring)
+  - All other parameters have strict type validation
+
+  The explore/logs search feature is NOT vulnerable to SQL injection,
+  UNION attacks, or any other query manipulation. The KQL-lite parser
+  acts as an effective SQL injection firewall.

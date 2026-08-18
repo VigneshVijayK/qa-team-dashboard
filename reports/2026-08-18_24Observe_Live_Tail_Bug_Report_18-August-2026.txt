@@ -1,0 +1,94 @@
+BUG REPORT – LIVE TAIL CONNECTION FAILURE
+
+Website: 24Observe Module: Logs Feature: Live Tail (SSE) Tester: Khaja
+Bandenawaz Test Date: 18-August-2026
+
+BUG TITLE Live Tail connection fails in the Logs UI despite successful
+authentication and working SSE endpoint
+
+BUG ID LOG-LIVETAIL-001
+
+SEVERITY Medium
+
+PRIORITY High
+
+STATUS Open
+
+DESCRIPTION The Live Tail feature in the 24Observe Logs section fails to
+establish a working real-time connection in the browser.
+
+When Live Tail is enabled, the interface displays the following error:
+
+“Live tail connection lost. Check your auth or toggle off/on.”
+
+The error is displayed without refreshing the page and continues to
+occur when Live Tail is enabled.
+
+TEST STEPS 1. Log in to the 24Observe website. 2. Navigate to Logs. 3.
+Open the Events section. 4. Enable the Live tail checkbox. 5. Observe
+the Live Tail connection status. 6. Send a log event through the
+authenticated /api/v1/logs/ingest API. 7. Check whether the new event
+appears automatically in Live Tail. 8. Test the documented SSE endpoint
+directly using curl.
+
+EXPECTED RESULT When Live Tail is enabled: - The browser should
+establish an SSE connection successfully. - The connection should remain
+active. - Newly accepted log events should appear automatically without
+refreshing the page. - The Live Tail error message should not be
+displayed when the backend SSE service is available.
+
+ACTUAL RESULT The browser displays:
+
+“Live tail connection lost. Check your auth or toggle off/on.”
+
+No real-time Live Tail connection is established in the UI.
+
+The error occurs without refreshing the page.
+
+EVIDENCE 1. PAT-authenticated log ingestion was tested successfully. 2.
+The /logs/ingest API returned an accepted event. 3. Previously ingested
+events were successfully displayed in the normal Events view. 4. The
+documented SSE endpoint was tested directly using curl. 5. The direct
+SSE connection returned: connected hb hb 6. The browser Live Tail
+interface still displayed the connection-lost error. 7. A newly ingested
+test event was successfully accepted by the API but the browser Live
+Tail interface did not establish the expected real-time connection.
+
+TECHNICAL OBSERVATION The direct SSE endpoint is capable of establishing
+a connection and sending heartbeat messages. Normal PAT authentication
+and log ingestion are also working.
+
+Therefore, the issue appears to be isolated to the browser-side Live
+Tail/SSE implementation, authentication handling, connection
+initialization, or reconnect logic.
+
+RECOMMENDED FIX Investigate the Live Tail browser implementation and
+verify: - SSE endpoint URL. - Browser authentication method. - PAT
+handling for browser EventSource connections. - EventSource connection
+initialization. - SSE error handling. - Automatic reconnect behavior. -
+Live Tail state after connection failure. - Real-time event subscription
+and rendering.
+
+The documentation states that native browser EventSource does not
+support custom Authorization headers and provides the token through the
+?token= query parameter. Verify that the frontend follows the documented
+authentication method.
+
+IMPACT Users are unable to use the Live Tail feature for real-time log
+monitoring. This can prevent users from seeing newly ingested logs
+immediately and reduces the usefulness of the real-time monitoring
+functionality.
+
+TEST RESULT Live Tail UI: FAIL Normal Log Ingestion: PASS PAT
+Authentication for Ingestion: PASS Events Display: PASS Direct SSE
+Connection: PASS
+
+FINAL CONCLUSION The Live Tail feature has a functional issue in the
+browser UI. The backend ingestion API and direct SSE connection work
+successfully, but the website Live Tail interface reports a persistent
+connection failure and does not provide the expected real-time log
+stream.
+
+Prepared by: Khaja Bandenawaz
+
+Date: 18-August-2026

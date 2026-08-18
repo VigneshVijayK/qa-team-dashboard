@@ -104,6 +104,8 @@ const NAME_MAP = {
   'vickky hirapure': 'Vikki Hirapure',
   'vikki': 'Vikki Hirapure',
   'vickky': 'Vikki Hirapure',
+  'khaja bandenawaz': 'Khaja Bandenawaz',
+  'khaja': 'Khaja Bandenawaz',
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -187,21 +189,47 @@ function parseReport(filePath, folderDate) {
   const basename = path.basename(filePath);
 
   if (/consolidated/i.test(basename)) return null;
+  // Skip combined reports (multi-tester aggregations, not individual work)
+  if (/combined/i.test(basename)) return null;
 
-  // Extract tester — handles three label formats:
+  // ── Owner detection — filename is the source of truth for ownership ──
+  // Try to identify the tester from the filename first (e.g. "Anubhav_BUG_REPORT...",
+  // "Angel-Thomas_report...", "Vikki_17-08-2026"). Fall back to the Tester:/
+  // Tested by:/Reporter: line inside the file only if the filename has no match.
+  const lowerBasename = basename.toLowerCase();
+  let filenameOwner = null;
+  for (const key of Object.keys(NAME_MAP)) {
+    // Match if the filename contains the name (with - or _ or space separators)
+    const nameInFile = key.replace(/\s+/g, '[-_]');
+    if (lowerBasename.includes(nameInFile) || lowerBasename.includes(key)) {
+      filenameOwner = NAME_MAP[key];
+      break;
+    }
+  }
+
+  // Extract tester from content — handles four label formats:
   //   1) "Tester: <name>", "**Tester:** <name>"
   //   2) "Tested by: <name>", "**Tested by:** <name>"
-  //   3) Markdown table row: "| **Reporter** | <name> |"
-  const testerMatch = content.match(/^\*{0,2}(?:Tester|Tested by)\*{0,2}:\*{0,2}\s*(.+)$/im);
-  let testerValue = testerMatch ? testerMatch[1] : null;
+  //   3) "Reporter: <name>", "**Reporter:** <name>"
+  //   4) Markdown table row: "| **Reporter** | <name> |"
+  // Also matches mid-line (e.g. "...Feature: Live Tail Tester: Khaja Bandenawaz...")
+  const testerMatch = content.match(/\*{0,2}(?:Tester|Tested by|Reporter)\*{0,2}:\*{0,2}\s*(.+?)(?:\n|Test Date|Date|$)/im);
+  let testerValue = testerMatch ? testerMatch[1].trim() : null;
 
   if (!testerValue) {
     const tableMatch = content.match(/^\|\s*\*{0,2}Reporter\*{0,2}\s*\|\s*(.+?)\s*\|/im);
     if (tableMatch) testerValue = tableMatch[1];
   }
 
-  if (!testerValue) return null;
-  const rawTester = extractTesterName(testerValue);
+  // Filename owner takes priority over content tester label
+  let rawTester;
+  if (filenameOwner) {
+    rawTester = filenameOwner;
+  } else if (testerValue) {
+    rawTester = extractTesterName(testerValue);
+  } else {
+    return null; // no owner found in filename or content
+  }
 
   if (/vignesh/i.test(rawTester)) return null;
 
@@ -304,7 +332,7 @@ function main() {
     const folderPath = path.join(REPORTS_DIR, folder);
     const files = fs
       .readdirSync(folderPath)
-      .filter((f) => f.toLowerCase().endsWith('.md'))
+      .filter((f) => f.toLowerCase().endsWith('.md') || f.toLowerCase().endsWith('.txt'))
       .sort();
 
     for (const file of files) {
