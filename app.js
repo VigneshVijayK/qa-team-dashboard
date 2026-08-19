@@ -139,7 +139,11 @@ function animateScoreValues(container) {
 
 async function loadData() {
   try {
-    const res = await fetch('data.json', { cache: 'no-store' });
+    // Detect which project dashboard we're on and load the right data file
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    let dataFile = 'data.json';
+    if (page === 'whatping.html') dataFile = 'whatping-data.json';
+    const res = await fetch(dataFile, { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     DATA = await res.json();
     render();
@@ -158,6 +162,33 @@ function render() {
   if (!DATA) return;
   el('loadingState').classList.add('hidden');
   el('errorState').classList.add('hidden');
+
+  // Empty state — no reports yet (e.g. whatping before reports are submitted)
+  if (!DATA.members || DATA.members.length === 0) {
+    el('dashboard').classList.add('hidden');
+    const empty = document.createElement('div');
+    empty.className = 'state-msg';
+    empty.innerHTML = `
+      <div style="font-size: 3rem; margin-bottom: 1rem;">📡</div>
+      <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">No reports yet</p>
+      <p style="color: var(--text-muted); max-width: 400px; margin: 0 auto;">
+        QA reports for this project haven't been submitted yet.
+        Once testers start sharing reports, the leaderboard, charts, and attendance
+        grid will appear here automatically.
+      </p>
+      <a href="index.html" class="btn btn-primary" style="margin-top: 1.5rem; text-decoration: none; display: inline-block;">← Back to Projects</a>
+    `;
+    // Remove any previous empty state
+    const existing = document.querySelector('.state-msg:not(#loadingState):not(#errorState)');
+    if (existing) existing.remove();
+    document.querySelector('.main').appendChild(empty);
+    return;
+  }
+
+  // Remove any leftover empty-state message
+  const existingEmpty = document.querySelector('.main > .state-msg:not(#loadingState):not(#errorState)');
+  if (existingEmpty) existingEmpty.remove();
+
   el('dashboard').classList.remove('hidden');
   renderHeader();
   renderSummaryStats();
