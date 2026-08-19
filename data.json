@@ -1,6 +1,6 @@
 {
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-18T18:09:37.379Z",
+  "generatedAt": "2026-08-19T10:09:09.677Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -1212,14 +1212,15 @@
     {
       "name": "Mubarak Mohammed",
       "initials": "MM",
-      "daysPresent": 6,
+      "daysPresent": 7,
       "datesPresent": [
         "2026-08-06",
         "2026-08-11",
         "2026-08-12",
         "2026-08-13",
         "2026-08-14",
-        "2026-08-17"
+        "2026-08-17",
+        "2026-08-18"
       ],
       "totalBugs": 15,
       "severityCounts": {
@@ -1229,13 +1230,15 @@
         "lowMedium": 0,
         "low": 4
       },
-      "score": 234,
+      "score": 269,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
+        "ATT&CK Coverage",
         "Billing",
         "Host Installation",
         "Incidents/Cases",
+        "Log Alerts",
         "Logs",
         "Metric Alerts",
         "Monitors",
@@ -1253,6 +1256,7 @@
       ],
       "depthSignals": [
         "API-level testing",
+        "DevTools evidence",
         "Fix recommendations",
         "Impact analysis",
         "Retest/verification"
@@ -1399,6 +1403,31 @@
           "severityBreakdown": {
             "critical": 0,
             "high": 1,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "bugsFound": 0,
+          "features": [
+            "AI Analyst",
+            "ATT&CK Coverage",
+            "Log Alerts"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "DevTools inspection"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "DevTools evidence"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
             "medium": 0,
             "lowMedium": 0,
             "low": 0
@@ -2415,6 +2444,27 @@
       "depthSignals": [
         "API-level testing",
         "Fix recommendations"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "tester": "Mubarak Mohammed",
+      "filename": "Mubarak Mohammed ATT_CK_Coverage_Page_Test_Report.md",
+      "path": "reports/2026-08-18_Mubarak Mohammed ATT_CK_Coverage_Page_Test_Report.md",
+      "bugsFound": 0,
+      "features": [
+        "AI Analyst",
+        "ATT&CK Coverage",
+        "Log Alerts"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "DevTools inspection"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "DevTools evidence"
       ]
     }
   ]
