@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>whatping.com — QA Dashboard (Coming Soon)</title>
-  <meta name="description" content="whatping.com QA team performance dashboard — coming soon." />
+  <title>whatping.com QA Team — Performance Dashboard</title>
+  <meta name="description" content="QA team performance analyser — topic coverage & understanding depth leaderboard." />
   <link rel="stylesheet" href="style.css" />
+  <!-- Set theme before render to avoid flash of wrong theme -->
   <script>
     (function() {
       try {
         var t = localStorage.getItem('qa-dashboard-theme');
+        // 'auto' or null → follow system; 'light'/'dark' → user override
         if (t !== 'light' && t !== 'dark') t = 'auto';
         var resolved = (t === 'auto' || !t)
           ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
@@ -19,14 +21,16 @@
       } catch(e) {}
     })();
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
 </head>
-<body class="projects-page">
+<body>
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html" class="back-to-projects">← All Projects</a>
       <div class="header-titles">
-        <h1>whatping.com</h1>
-        <p class="subtitle">QA Dashboard — Coming Soon</p>
+        <h1>whatping.com QA Team</h1>
+        <p class="subtitle">Performance Dashboard — Coming Soon</p>
       </div>
       <div class="header-meta">
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cycle theme" title="Cycle: Auto → Dark → Light">
@@ -34,39 +38,150 @@
           <span class="theme-icon theme-icon-dark">🌙</span>
           <span class="theme-icon theme-icon-light">☀️</span>
         </button>
+        <div class="admin-badge">
+          <span class="admin-label">Team Lead</span>
+          <span class="admin-name" id="adminName">—</span>
+        </div>
+        <div class="updated-badge">
+          <span class="updated-label">Last updated</span>
+          <span class="updated-value" id="lastUpdated">—</span>
+        </div>
       </div>
     </div>
   </header>
 
-  <main class="projects-main">
-    <div class="coming-soon-box">
-      <div class="coming-soon-icon">📡</div>
-      <h2>whatping.com Dashboard</h2>
-      <p>QA reports for whatping.com haven't been submitted yet.</p>
-      <p class="coming-soon-hint">Once testers start sharing reports, this dashboard will show their performance — just like the 24observe dashboard.</p>
-      <a href="24observe.html" class="btn btn-primary" style="margin-top: 1.5rem; text-decoration: none; display: inline-block;">View 24observe Dashboard →</a>
+  <div class="toolbar">
+    <div class="toolbar-inner">
+      <div class="summary-stats" id="summaryStats"></div>
+      <div class="toolbar-actions">
+        <button id="downloadCsvBtn" class="btn btn-primary" type="button">⬇ Download Report (CSV)</button>
+        <button id="printBtn" class="btn btn-secondary" type="button">🖨 Print / Save as PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <div id="loadingState" class="state-msg">
+      <div class="spinner"></div>
+      <p>Loading performance data…</p>
+    </div>
+    <div id="errorState" class="state-msg hidden">
+      <p class="error-title">⚠ Could not load data</p>
+      <p class="error-detail" id="errorDetail"></p>
+      <p class="error-hint">Run <code>node build.js</code> to generate <code>whatping-data.json</code>, then refresh.</p>
+    </div>
+
+    <div id="dashboard" class="hidden">
+      <section class="card section-leaderboard">
+        <h2 class="section-title">🏆 Leaderboard</h2>
+        <p class="section-desc">
+          Ranked by topic coverage & understanding depth = (days × <span id="wDays">5</span>) +
+          (topics × <span id="wFeature">12</span>) + (methods × <span id="wMethod">8</span>) +
+          (depth signals × <span id="wDepth">6</span>).
+          Not based on bug count — every contribution is respected equally.
+        </p>
+        <div class="leaderboard" id="leaderboard"></div>
+      </section>
+
+      <section class="card section-charts">
+        <h2 class="section-title">📊 Coverage & Depth Charts</h2>
+        <div class="charts-grid">
+          <div class="chart-box">
+            <h3 class="chart-title">Topics Covered</h3>
+            <canvas id="chartTotalBugs"></canvas>
+          </div>
+          <div class="chart-box">
+            <h3 class="chart-title">Coverage Breakdown (Features / Methods / Depth)</h3>
+            <canvas id="chartSeverity"></canvas>
+          </div>
+          <div class="chart-box chart-box--wide">
+            <h3 class="chart-title">Cumulative Topic Coverage Over Time</h3>
+            <canvas id="chartCumulative"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="card section-attendance">
+        <h2 class="section-title">📅 Attendance Grid</h2>
+        <p class="section-desc">Green = report submitted that day. Click a name to see details.</p>
+        <div class="attendance-wrap">
+          <table class="attendance-table" id="attendanceTable"></table>
+        </div>
+      </section>
+
+      <section class="card section-reports">
+        <h2 class="section-title">📄 Daily Reports</h2>
+        <p class="section-desc">
+          Browse and download the actual reports shared by each junior.
+          Secrets (tokens, emails) are automatically redacted.
+        </p>
+        <div class="reports-filters">
+          <select id="reportFilterPerson" class="filter-select"><option value="">All people</option></select>
+          <select id="reportFilterDate" class="filter-select"><option value="">All dates</option></select>
+          <input type="search" id="reportSearch" class="filter-input" placeholder="Search report text…" />
+        </div>
+        <div class="reports-table-wrap">
+          <table class="reports-table" id="reportsTable"></table>
+        </div>
+        <p class="reports-count" id="reportsCount"></p>
+      </section>
     </div>
   </main>
 
-  <footer class="site-footer">
-    <p>QA Team Projects Dashboard · Team Lead: Vignesh Vijay K</p>
-  </footer>
+  <div id="reportModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
+    <div class="modal-backdrop" id="reportModalBackdrop"></div>
+    <div class="modal-content modal-content--wide">
+      <button class="modal-close" id="reportModalClose" aria-label="Close">×</button>
+      <div class="report-modal-header">
+        <div>
+          <h2 id="reportModalTitle">—</h2>
+          <p class="report-modal-meta" id="reportModalMeta">—</p>
+        </div>
+        <button id="reportModalDownload" class="btn btn-primary" type="button">⬇ Download .md</button>
+      </div>
+      <div class="report-viewer-wrap">
+        <pre class="report-viewer" id="reportViewer"></pre>
+      </div>
+    </div>
+  </div>
 
-  <script>
-    (function() {
-      var btn = document.getElementById('themeToggle');
-      if (!btn) return;
-      btn.addEventListener('click', function() {
-        var pref = document.documentElement.getAttribute('data-theme-pref') || 'auto';
-        var next = pref === 'auto' ? 'dark' : pref === 'dark' ? 'light' : 'auto';
-        var resolved = next === 'auto'
-          ? (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
-          : next;
-        document.documentElement.setAttribute('data-theme', resolved);
-        document.documentElement.setAttribute('data-theme-pref', next);
-        try { localStorage.setItem('qa-dashboard-theme', next); } catch(e) {}
-      });
-    })();
-  </script>
+  <div id="personModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-header">
+        <div class="modal-avatar" id="modalAvatar">—</div>
+        <div>
+          <h2 id="modalName">—</h2>
+          <p class="modal-rank" id="modalRank">—</p>
+        </div>
+      </div>
+      <div class="modal-stats" id="modalStats"></div>
+
+      <h3 class="modal-subtitle">Topics Covered</h3>
+      <div class="modal-tags" id="modalTopics"></div>
+
+      <h3 class="modal-subtitle">Testing Methods</h3>
+      <div class="modal-tags" id="modalMethods"></div>
+
+      <h3 class="modal-subtitle">Understanding Depth Signals</h3>
+      <div class="modal-tags" id="modalDepth"></div>
+
+      <h3 class="modal-subtitle">Daily Log</h3>
+      <div class="modal-table-wrap">
+        <table class="modal-table" id="modalTable"></table>
+      </div>
+      <h3 class="modal-subtitle">Dates Present</h3>
+      <div class="modal-dates" id="modalDates"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>
+      whatping.com QA Team Performance Dashboard ·
+      Scored by topic coverage & understanding depth, not bug count ·
+      Built with vanilla HTML/CSS/JS + Chart.js
+    </p>
+  </footer>
 </body>
 </html>

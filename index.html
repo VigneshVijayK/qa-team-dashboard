@@ -41,14 +41,14 @@
     <div class="projects-grid">
 
       <!-- 24observe -->
-      <a href="24observe.html" class="project-card project-card--active">
+      <a href="24observe.html" class="project-card project-card--active" id="card-24observe">
         <div class="project-icon">🔍</div>
         <h2 class="project-name">24observe</h2>
         <p class="project-desc">Security monitoring & observability platform</p>
         <div class="project-stats">
-          <span class="project-stat"><strong>6</strong> testers</span>
-          <span class="project-stat"><strong>41</strong> reports</span>
-          <span class="project-stat"><strong>9</strong> days</span>
+          <span class="project-stat"><strong id="stat-24observe-testers">—</strong> testers</span>
+          <span class="project-stat"><strong id="stat-24observe-reports">—</strong> reports</span>
+          <span class="project-stat"><strong id="stat-24observe-days">—</strong> days</span>
         </div>
         <div class="project-status">
           <span class="status-dot status-active"></span> Active
@@ -57,19 +57,19 @@
       </a>
 
       <!-- whatping.com -->
-      <a href="whatping.html" class="project-card project-card--coming-soon">
+      <a href="whatping.html" class="project-card" id="card-whatping">
         <div class="project-icon">📡</div>
         <h2 class="project-name">whatping.com</h2>
         <p class="project-desc">Uptime monitoring & status pages</p>
         <div class="project-stats">
-          <span class="project-stat"><strong>—</strong> testers</span>
-          <span class="project-stat"><strong>—</strong> reports</span>
-          <span class="project-stat"><strong>—</strong> days</span>
+          <span class="project-stat"><strong id="stat-whatping-testers">—</strong> testers</span>
+          <span class="project-stat"><strong id="stat-whatping-reports">—</strong> reports</span>
+          <span class="project-stat"><strong id="stat-whatping-days">—</strong> days</span>
         </div>
-        <div class="project-status">
+        <div class="project-status" id="whatping-status">
           <span class="status-dot status-soon"></span> Coming Soon
         </div>
-        <div class="project-cta">Coming Soon</div>
+        <div class="project-cta" id="whatping-cta">Coming Soon</div>
       </a>
 
     </div>
@@ -94,6 +94,33 @@
         document.documentElement.setAttribute('data-theme-pref', next);
         try { localStorage.setItem('qa-dashboard-theme', next); } catch(e) {}
       });
+    })();
+
+    // Fetch live stats for each project
+    (function() {
+      async function loadStats(dataUrl, prefix) {
+        try {
+          const res = await fetch(dataUrl, { cache: 'no-store' });
+          if (!res.ok) return;
+          const data = await res.json();
+          const testers = (data.members || []).length;
+          const reports = (data.reports || []).length;
+          const days = (data.dateRange || []).length;
+          document.getElementById('stat-' + prefix + '-testers').textContent = testers;
+          document.getElementById('stat-' + prefix + '-reports').textContent = reports;
+          document.getElementById('stat-' + prefix + '-days').textContent = days;
+          // If whatping has data, upgrade it from "Coming Soon" to "Active"
+          if (prefix === 'whatping' && testers > 0) {
+            document.getElementById('card-whatping').classList.remove('project-card--coming-soon');
+            document.getElementById('card-whatping').classList.add('project-card--active');
+            document.getElementById('whatping-status').innerHTML =
+              '<span class="status-dot status-active"></span> Active';
+            document.getElementById('whatping-cta').textContent = 'View Dashboard →';
+          }
+        } catch (e) { /* stats will show — */ }
+      }
+      loadStats('data.json', '24observe');
+      loadStats('whatping-data.json', 'whatping');
     })();
   </script>
 </body>

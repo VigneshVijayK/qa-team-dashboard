@@ -1,0 +1,16 @@
+{
+  "projectName": "whatping",
+  "teamAdmin": "Vignesh Vijay K",
+  "generatedAt": "2026-08-19T10:38:03.440Z",
+  "dateRange": [
+    "2026-08-19"
+  ],
+  "weights": {
+    "daysPresent": 5,
+    "perFeature": 12,
+    "perMethod": 8,
+    "perDepthSignal": 6
+  },
+  "members": [],
+  "reports": []
+}

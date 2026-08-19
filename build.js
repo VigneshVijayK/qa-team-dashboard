@@ -22,14 +22,27 @@ const path = require('path');
 
 // ─── Configuration ───────────────────────────────────────────────────────────
 
-const REPORTS_DIR = path.join(
-  __dirname,
-  '..',
-  '24observe.com',
-  'consolated report'
-);
-const OUTPUT_FILE = path.join(__dirname, 'data.json');
-const REPORTS_OUT_DIR = path.join(__dirname, 'reports');
+// Multi-project config — each project has its own reports dir, output file,
+// and redacted-reports output dir. build.js processes all of them.
+const PROJECTS = [
+  {
+    name: '24observe',
+    reportsDir: path.join(__dirname, '..', '24observe.com', 'consolated report'),
+    outputFile: path.join(__dirname, 'data.json'),
+    reportsOutDir: path.join(__dirname, 'reports'),
+    reportsUrlPrefix: 'reports/',
+    dashboardPage: '24observe.html',
+  },
+  {
+    name: 'whatping',
+    reportsDir: path.join(__dirname, '..', 'whatping', 'consolated report'),
+    outputFile: path.join(__dirname, 'whatping-data.json'),
+    reportsOutDir: path.join(__dirname, 'whatping-reports'),
+    reportsUrlPrefix: 'whatping-reports/',
+    dashboardPage: 'whatping.html',
+  },
+];
+
 const TEAM_ADMIN = 'Vignesh Vijay K';
 
 // Scoring weights — performance = topic coverage + understanding depth.
@@ -286,20 +299,41 @@ function parseReport(filePath, folderDate) {
 
 // ─── Main ────────────────────────────────────────────────────────────────────
 
-function main() {
-  if (!fs.existsSync(REPORTS_DIR)) {
-    console.error(`ERROR: Reports directory not found: ${REPORTS_DIR}`);
-    process.exit(1);
+function buildProject(project) {
+  const { reportsDir, outputFile, reportsOutDir, reportsUrlPrefix } = project;
+
+  if (!fs.existsSync(reportsDir)) {
+    console.log(`  ⚠ Reports directory not found: ${reportsDir} — skipping ${project.name}`);
+    // Write empty data so the dashboard shows "no reports" instead of erroring
+    const emptyOutput = {
+      teamAdmin: TEAM_ADMIN,
+      generatedAt: new Date().toISOString(),
+      dateRange: [],
+      weights: WEIGHTS,
+      members: [],
+      reports: [],
+    };
+    fs.writeFileSync(outputFile, JSON.stringify(emptyOutput, null, 2), 'utf8');
+    return;
   }
 
   const dateFolders = fs
-    .readdirSync(REPORTS_DIR)
+    .readdirSync(reportsDir)
     .filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))
     .sort();
 
   if (dateFolders.length === 0) {
-    console.error('ERROR: No date folders (YYYY-MM-DD) found in reports directory.');
-    process.exit(1);
+    console.log(`  ⚠ No date folders found in ${reportsDir} — writing empty data for ${project.name}`);
+    const emptyOutput = {
+      teamAdmin: TEAM_ADMIN,
+      generatedAt: new Date().toISOString(),
+      dateRange: [],
+      weights: WEIGHTS,
+      members: [],
+      reports: [],
+    };
+    fs.writeFileSync(outputFile, JSON.stringify(emptyOutput, null, 2), 'utf8');
+    return;
   }
 
   const people = new Map();
@@ -323,13 +357,13 @@ function main() {
   let totalReportsParsed = 0;
   let totalReportsSkipped = 0;
 
-  fs.rmSync(REPORTS_OUT_DIR, { recursive: true, force: true });
-  fs.mkdirSync(REPORTS_OUT_DIR, { recursive: true });
+  fs.rmSync(reportsOutDir, { recursive: true, force: true });
+  fs.mkdirSync(reportsOutDir, { recursive: true });
 
   const reportsIndex = [];
 
   for (const folder of dateFolders) {
-    const folderPath = path.join(REPORTS_DIR, folder);
+    const folderPath = path.join(reportsDir, folder);
     const files = fs
       .readdirSync(folderPath)
       .filter((f) => f.toLowerCase().endsWith('.md') || f.toLowerCase().endsWith('.txt'))
@@ -367,12 +401,12 @@ function main() {
       const rawContent = fs.readFileSync(filePath, 'utf8');
       const redacted = redactReport(rawContent);
       const outName = reportOutputName(folder, parsed.filename);
-      fs.writeFileSync(path.join(REPORTS_OUT_DIR, outName), redacted, 'utf8');
+      fs.writeFileSync(path.join(reportsOutDir, outName), redacted, 'utf8');
       reportsIndex.push({
         date: parsed.date,
         tester: parsed.tester,
         filename: parsed.filename,
-        path: `reports/${outName}`,
+        path: `${reportsUrlPrefix}${outName}`,
         bugsFound: parsed.severities.length,
         features: parsed.features,
         methods: parsed.methods,
@@ -417,6 +451,7 @@ function main() {
   members.sort((a, b) => b.score - a.score);
 
   const output = {
+    projectName: project.name,
     teamAdmin: TEAM_ADMIN,
     generatedAt: new Date().toISOString(),
     dateRange: dateFolders,
@@ -427,27 +462,35 @@ function main() {
     ),
   };
 
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify(output, null, 2), 'utf8');
+  fs.writeFileSync(outputFile, JSON.stringify(output, null, 2), 'utf8');
 
-  console.log('✓ Build complete');
+  console.log(`✓ ${project.name} build complete`);
   console.log(`  Reports parsed:  ${totalReportsParsed}`);
   console.log(`  Reports skipped: ${totalReportsSkipped} (consolidated / admin)`);
   console.log(`  Date folders:    ${dateFolders.length} (${dateFolders[0]} → ${dateFolders[dateFolders.length - 1]})`);
   console.log(`  Members tracked: ${members.length}`);
-  console.log(`  Reports copied:  ${reportsIndex.length} (redacted → ./reports/)`);
+  console.log(`  Reports copied:  ${reportsIndex.length} (redacted → ${reportsOutDir})`);
+  if (members.length > 0) {
+    console.log('');
+    console.log('  Leaderboard (topic coverage + understanding depth):');
+    members.forEach((m, i) => {
+      console.log(
+        `    ${i + 1}. ${m.name.padEnd(20)} score=${String(m.score).padStart(3)}  ` +
+        `days=${m.daysPresent}  features=${m.featuresCovered.length}  methods=${m.methodsUsed.length}  depth=${m.depthSignals.length}  bugs=${m.totalBugs}`
+      );
+    });
+  }
   console.log('');
-  console.log('  Leaderboard (topic coverage + understanding depth):');
-  members.forEach((m, i) => {
-    console.log(
-      `    ${i + 1}. ${m.name.padEnd(20)} score=${String(m.score).padStart(3)}  ` +
-      `days=${m.daysPresent}  features=${m.featuresCovered.length}  methods=${m.methodsUsed.length}  depth=${m.depthSignals.length}  bugs=${m.totalBugs}`
-    );
-    console.log(`       Features: ${m.featuresCovered.join(', ')}`);
-    console.log(`       Methods:  ${m.methodsUsed.join(', ')}`);
-    console.log(`       Depth:    ${m.depthSignals.join(', ')}`);
-  });
-  console.log('');
-  console.log(`  Written to: ${OUTPUT_FILE}`);
+  console.log(`  Written to: ${outputFile}`);
+}
+
+function main() {
+  console.log('═══ QA Team Multi-Project Build ═══\n');
+  for (const project of PROJECTS) {
+    console.log(`\n── Building ${project.name} ──`);
+    buildProject(project);
+  }
+  console.log('\n═══ All projects built ═══');
 }
 
 main();
