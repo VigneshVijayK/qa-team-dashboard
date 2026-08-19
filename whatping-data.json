@@ -1,8 +1,10 @@
 {
   "projectName": "whatping",
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-19T10:38:03.440Z",
+  "generatedAt": "2026-08-19T15:23:38.925Z",
   "dateRange": [
+    "2026-08-10",
+    "2026-08-17",
     "2026-08-19"
   ],
   "weights": {
@@ -11,6 +13,567 @@
     "perMethod": 8,
     "perDepthSignal": 6
   },
-  "members": [],
-  "reports": []
+  "members": [
+    {
+      "name": "Preet Mishra",
+      "initials": "PM",
+      "daysPresent": 3,
+      "datesPresent": [
+        "2026-08-10",
+        "2026-08-17",
+        "2026-08-19"
+      ],
+      "totalBugs": 17,
+      "severityCounts": {
+        "critical": 0,
+        "high": 5,
+        "medium": 10,
+        "lowMedium": 0,
+        "low": 2
+      },
+      "score": 149,
+      "featuresCovered": [
+        "API Tokens",
+        "Billing",
+        "Monitors",
+        "On-call scheduling",
+        "OpenAPI/Version",
+        "Webhooks"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "Retest/verification",
+        "Root cause analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-10",
+          "bugsFound": 6,
+          "features": [
+            "On-call scheduling",
+            "Monitors",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 5,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-17",
+          "bugsFound": 7,
+          "features": [
+            "API Tokens",
+            "OpenAPI/Version",
+            "Billing"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 2,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 2
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "bugsFound": 4,
+          "features": [
+            "Webhooks",
+            "Billing"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 2,
+            "medium": 2,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Emil Thomas",
+      "initials": "ET",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-19"
+      ],
+      "totalBugs": 8,
+      "severityCounts": {
+        "critical": 0,
+        "high": 2,
+        "medium": 4,
+        "lowMedium": 0,
+        "low": 2
+      },
+      "score": 129,
+      "featuresCovered": [
+        "API Tokens",
+        "Monitors",
+        "On-call scheduling",
+        "OpenAPI/Version",
+        "Status Pages"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "On-host testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "Retest/verification"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 4,
+          "features": [
+            "Monitors"
+          ],
+          "methods": [
+            "API testing",
+            "On-host testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "bugsFound": 4,
+          "features": [
+            "On-call scheduling",
+            "Monitors",
+            "Status Pages",
+            "API Tokens",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 1,
+            "lowMedium": 0,
+            "low": 2
+          }
+        }
+      ]
+    },
+    {
+      "name": "Vikki Hirapure",
+      "initials": "VH",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-19"
+      ],
+      "totalBugs": 0,
+      "severityCounts": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "lowMedium": 0,
+        "low": 0
+      },
+      "score": 99,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Monitors"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "On-host testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Root cause analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 0,
+          "features": [
+            "Monitors",
+            "AI Analyst",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "On-host testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Fix recommendations"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Anubhav Soni",
+      "initials": "AS",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-19"
+      ],
+      "totalBugs": 0,
+      "severityCounts": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "lowMedium": 0,
+        "low": 0
+      },
+      "score": 59,
+      "featuresCovered": [
+        "API Tokens",
+        "Monitors"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing"
+      ],
+      "depthSignals": [
+        "API-level testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 0,
+          "features": [
+            "Monitors",
+            "API Tokens"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Angel Thomas",
+      "initials": "AT",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-19"
+      ],
+      "totalBugs": 5,
+      "severityCounts": {
+        "critical": 0,
+        "high": 0,
+        "medium": 3,
+        "lowMedium": 0,
+        "low": 2
+      },
+      "score": 53,
+      "featuresCovered": [
+        "Monitors"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 5,
+          "features": [
+            "Monitors"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 2
+          }
+        }
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "date": "2026-08-10",
+      "tester": "Preet Mishra",
+      "filename": "PREET_MISHRA_consolidated_report_whatping_10-14AUG.md",
+      "path": "whatping-reports/2026-08-10_PREET_MISHRA_consolidated_report_whatping_10-14AUG.md",
+      "bugsFound": 6,
+      "features": [
+        "On-call scheduling",
+        "Monitors",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "tester": "Preet Mishra",
+      "filename": "PREET_MISHRA_consolidated_report_whatping_17aug_c.md",
+      "path": "whatping-reports/2026-08-17_PREET_MISHRA_consolidated_report_whatping_17aug_c.md",
+      "bugsFound": 7,
+      "features": [
+        "API Tokens",
+        "OpenAPI/Version",
+        "Billing"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-8-19.md",
+      "path": "whatping-reports/2026-08-19_Angel-Thomas_report_26-8-19.md",
+      "bugsFound": 5,
+      "features": [
+        "Monitors"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Anubhav Soni",
+      "filename": "Anubhav-whatping-monitors-report_19-08-2026.md",
+      "path": "whatping-reports/2026-08-19_Anubhav-whatping-monitors-report_19-08-2026.md",
+      "bugsFound": 0,
+      "features": [
+        "Monitors",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas Whatping Report_2026-08-19.md",
+      "path": "whatping-reports/2026-08-19_Emil Thomas Whatping Report_2026-08-19.md",
+      "bugsFound": 4,
+      "features": [
+        "Monitors"
+      ],
+      "methods": [
+        "API testing",
+        "On-host testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Retest/verification",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas Whatping UI-UX Report_2026-08-19.md",
+      "path": "whatping-reports/2026-08-19_Emil Thomas Whatping UI-UX Report_2026-08-19.md",
+      "bugsFound": 4,
+      "features": [
+        "On-call scheduling",
+        "Monitors",
+        "Status Pages",
+        "API Tokens",
+        "OpenAPI/Version"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Preet Mishra",
+      "filename": "PREET_MISHRA_consolidated_report_whatping_19aug.md",
+      "path": "whatping-reports/2026-08-19_PREET_MISHRA_consolidated_report_whatping_19aug.md",
+      "bugsFound": 4,
+      "features": [
+        "Webhooks",
+        "Billing"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Retest/verification",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Vikki Hirapure",
+      "filename": "Vikki_Hirapure_19.08.2026.md",
+      "path": "whatping-reports/2026-08-19_Vikki_Hirapure_19.08.2026.md",
+      "bugsFound": 0,
+      "features": [
+        "Monitors",
+        "AI Analyst",
+        "API Tokens"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "On-host testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Fix recommendations"
+      ]
+    }
+  ]
 }

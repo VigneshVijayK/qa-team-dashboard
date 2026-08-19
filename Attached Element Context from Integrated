@@ -1,0 +1,62 @@
+Attached Element Context from Integrated Browser
+
+Element: div.rank-name
+
+URL: https://vigneshvijayk.github.io/qa-team-dashboard/whatping.html
+
+HTML Path: main.main > div#dashboard > section.card.section-leaderboard > div#leaderboard.leaderboard > div.rank-card.rank-3 > div.rank-card-top > div > div.rank-name
+
+Outer HTML:
+```html
+<div class="rank-name">Vikki Hirapure</div>
+```
+
+Dimensions:
+- top: 349px
+- left: 873px
+- width: 107px
+- height: 24px
+
+CSS:
+```css
+* { box-sizing: border-box; margin: 0; padding: 0; }
+.rank-name { font-weight: 600;
+  font-size: 1rem; }
+
+/* Pseudo-elements */
+::-webkit-scrollbar { width: 8px;
+  height: 8px; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb);
+  border-radius: 4px;
+  transition: background 0.2s ease; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+
+/* Inherited */
+.rank-card { cursor: pointer }
+body { font-family: var(--font); color: var(--text); line-height: 1.5 }
+
+/* Resolved values */
+margin: 0px;
+padding: 0px;
+border-radius: 0px;
+transition: all;
+box-sizing: border-box;
+color: rgb(230, 233, 239);
+cursor: pointer;
+display: block;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+font-size: 16px;
+font-weight: 600;
+height: 24px;
+line-height: 24px;
+unicode-bidi: isolate /*UA*/;
+width: 107.312px;
+
+/* CSS variables */
+--font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+--text: #e6e9ef;
+--accent: #4f8cff;
+--scrollbar-track: #0f1117;
+--scrollbar-thumb: #3a4150;
+```

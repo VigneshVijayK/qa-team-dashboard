@@ -119,6 +119,8 @@ const NAME_MAP = {
   'vickky': 'Vikki Hirapure',
   'khaja bandenawaz': 'Khaja Bandenawaz',
   'khaja': 'Khaja Bandenawaz',
+  'preet mishra': 'Preet Mishra',
+  'preet': 'Preet Mishra',
 };
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -201,7 +203,7 @@ function parseReport(filePath, folderDate) {
   const content = fs.readFileSync(filePath, 'utf8');
   const basename = path.basename(filePath);
 
-  if (/consolidated/i.test(basename)) return null;
+  if (/^consolidated/i.test(basename)) return null;
   // Skip combined reports (multi-tester aggregations, not individual work)
   if (/combined/i.test(basename)) return null;
 
@@ -220,13 +222,14 @@ function parseReport(filePath, folderDate) {
     }
   }
 
-  // Extract tester from content — handles four label formats:
+  // Extract tester from content — handles five label formats:
   //   1) "Tester: <name>", "**Tester:** <name>"
   //   2) "Tested by: <name>", "**Tested by:** <name>"
   //   3) "Reporter: <name>", "**Reporter:** <name>"
-  //   4) Markdown table row: "| **Reporter** | <name> |"
+  //   4) "Reported by: <name>", "**Reported by:** <name>"
+  //   5) Markdown table row: "| **Reporter** | <name> |"
   // Also matches mid-line (e.g. "...Feature: Live Tail Tester: Khaja Bandenawaz...")
-  const testerMatch = content.match(/\*{0,2}(?:Tester|Tested by|Reporter)\*{0,2}:\*{0,2}\s*(.+?)(?:\n|Test Date|Date|$)/im);
+  const testerMatch = content.match(/\*{0,2}(?:Tester|Tested by|Reporter|Reported by)\*{0,2}:\*{0,2}\s*(.+?)(?:\n|Test Date|Date|$)/im);
   let testerValue = testerMatch ? testerMatch[1].trim() : null;
 
   if (!testerValue) {

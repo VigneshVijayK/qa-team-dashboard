@@ -1,7 +1,7 @@
 {
   "projectName": "24observe",
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-19T10:38:03.433Z",
+  "generatedAt": "2026-08-19T15:23:38.861Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -11,7 +11,8 @@
     "2026-08-13",
     "2026-08-14",
     "2026-08-17",
-    "2026-08-18"
+    "2026-08-18",
+    "2026-08-19"
   ],
   "weights": {
     "daysPresent": 5,
@@ -690,30 +691,33 @@
     {
       "name": "Vikki Hirapure",
       "initials": "VH",
-      "daysPresent": 7,
+      "daysPresent": 9,
       "datesPresent": [
         "2026-08-06",
         "2026-08-07",
+        "2026-08-10",
         "2026-08-11",
         "2026-08-12",
         "2026-08-13",
         "2026-08-14",
-        "2026-08-17"
+        "2026-08-17",
+        "2026-08-18"
       ],
-      "totalBugs": 28,
+      "totalBugs": 31,
       "severityCounts": {
         "critical": 1,
-        "high": 5,
+        "high": 6,
         "medium": 16,
-        "lowMedium": 0,
+        "lowMedium": 2,
         "low": 6
       },
-      "score": 295,
+      "score": 317,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
         "Alerts (Telegram/SMS)",
         "Audit Log",
+        "Billing",
         "Context Assets",
         "Host Installation",
         "Incidents/Cases",
@@ -787,6 +791,28 @@
           "severityBreakdown": {
             "critical": 1,
             "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-10",
+          "bugsFound": 1,
+          "features": [
+            "Logs"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
             "medium": 0,
             "lowMedium": 0,
             "low": 0
@@ -961,6 +987,36 @@
             "high": 1,
             "medium": 0,
             "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-18",
+          "bugsFound": 2,
+          "features": [
+            "Logs",
+            "Webhooks",
+            "API Tokens",
+            "OpenAPI/Version",
+            "Billing"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "DevTools inspection",
+            "Security testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "DevTools evidence"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 2,
             "low": 0
           }
         }
@@ -1437,6 +1493,80 @@
       ]
     },
     {
+      "name": "Preet Mishra",
+      "initials": "PM",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-19"
+      ],
+      "totalBugs": 0,
+      "severityCounts": {
+        "critical": 0,
+        "high": 0,
+        "medium": 0,
+        "lowMedium": 0,
+        "low": 0
+      },
+      "score": 167,
+      "featuresCovered": [
+        "AI Analyst",
+        "API Tokens",
+        "Billing",
+        "Logs",
+        "Monitors",
+        "On-call scheduling",
+        "OpenAPI/Version",
+        "Security Headers",
+        "Status Pages",
+        "Webhooks"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "Security testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Security testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 0,
+          "features": [
+            "On-call scheduling",
+            "Logs",
+            "Monitors",
+            "AI Analyst",
+            "Status Pages",
+            "Webhooks",
+            "Security Headers",
+            "API Tokens",
+            "OpenAPI/Version",
+            "Billing"
+          ],
+          "methods": [
+            "API testing",
+            "Security testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Security testing",
+            "Fix recommendations"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
       "name": "Khaja Bandenawaz",
       "initials": "KB",
       "daysPresent": 1,
@@ -1690,6 +1820,24 @@
       "depthSignals": [
         "API-level testing",
         "On-host runtime testing"
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "tester": "Vikki Hirapure",
+      "filename": "Vikki-Hirapure_report_26-8-10 (1).md",
+      "path": "reports/2026-08-10_Vikki-Hirapure_report_26-8-10 (1).md",
+      "bugsFound": 1,
+      "features": [
+        "Logs"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
       ]
     },
     {
@@ -2466,6 +2614,61 @@
       "depthSignals": [
         "API-level testing",
         "DevTools evidence"
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "tester": "Vikki Hirapure",
+      "filename": "Vikki Hirapure24observe-report-2026-08-18.md",
+      "path": "reports/2026-08-18_Vikki Hirapure24observe-report-2026-08-18.md",
+      "bugsFound": 2,
+      "features": [
+        "Logs",
+        "Webhooks",
+        "API Tokens",
+        "OpenAPI/Version",
+        "Billing"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "DevTools inspection",
+        "Security testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "DevTools evidence"
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "tester": "Preet Mishra",
+      "filename": "PREET_MISHRA_18AUG_REPORT_24OBSERVE.txt",
+      "path": "reports/2026-08-19_PREET_MISHRA_18AUG_REPORT_24OBSERVE.txt",
+      "bugsFound": 0,
+      "features": [
+        "On-call scheduling",
+        "Logs",
+        "Monitors",
+        "AI Analyst",
+        "Status Pages",
+        "Webhooks",
+        "Security Headers",
+        "API Tokens",
+        "OpenAPI/Version",
+        "Billing"
+      ],
+      "methods": [
+        "API testing",
+        "Security testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Security testing",
+        "Fix recommendations"
       ]
     }
   ]
