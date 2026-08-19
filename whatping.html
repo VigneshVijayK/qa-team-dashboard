@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QA Team — Projects Dashboard</title>
-  <meta name="description" content="Select a project to view its QA team performance dashboard." />
+  <title>whatping.com — QA Dashboard (Coming Soon)</title>
+  <meta name="description" content="whatping.com QA team performance dashboard — coming soon." />
   <link rel="stylesheet" href="style.css" />
   <script>
     (function() {
@@ -23,9 +23,10 @@
 <body class="projects-page">
   <header class="site-header">
     <div class="header-inner">
+      <a href="index.html" class="back-to-projects">← All Projects</a>
       <div class="header-titles">
-        <h1>QA Team Projects</h1>
-        <p class="subtitle">Select a project to view team performance</p>
+        <h1>whatping.com</h1>
+        <p class="subtitle">QA Dashboard — Coming Soon</p>
       </div>
       <div class="header-meta">
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Cycle theme" title="Cycle: Auto → Dark → Light">
@@ -38,49 +39,20 @@
   </header>
 
   <main class="projects-main">
-    <div class="projects-grid">
-
-      <!-- 24observe -->
-      <a href="24observe.html" class="project-card project-card--active">
-        <div class="project-icon">🔍</div>
-        <h2 class="project-name">24observe</h2>
-        <p class="project-desc">Security monitoring & observability platform</p>
-        <div class="project-stats">
-          <span class="project-stat"><strong>6</strong> testers</span>
-          <span class="project-stat"><strong>41</strong> reports</span>
-          <span class="project-stat"><strong>9</strong> days</span>
-        </div>
-        <div class="project-status">
-          <span class="status-dot status-active"></span> Active
-        </div>
-        <div class="project-cta">View Dashboard →</div>
-      </a>
-
-      <!-- whatping.com -->
-      <a href="whatping.html" class="project-card project-card--coming-soon">
-        <div class="project-icon">📡</div>
-        <h2 class="project-name">whatping.com</h2>
-        <p class="project-desc">Uptime monitoring & status pages</p>
-        <div class="project-stats">
-          <span class="project-stat"><strong>—</strong> testers</span>
-          <span class="project-stat"><strong>—</strong> reports</span>
-          <span class="project-stat"><strong>—</strong> days</span>
-        </div>
-        <div class="project-status">
-          <span class="status-dot status-soon"></span> Coming Soon
-        </div>
-        <div class="project-cta">Coming Soon</div>
-      </a>
-
+    <div class="coming-soon-box">
+      <div class="coming-soon-icon">📡</div>
+      <h2>whatping.com Dashboard</h2>
+      <p>QA reports for whatping.com haven't been submitted yet.</p>
+      <p class="coming-soon-hint">Once testers start sharing reports, this dashboard will show their performance — just like the 24observe dashboard.</p>
+      <a href="24observe.html" class="btn btn-primary" style="margin-top: 1.5rem; text-decoration: none; display: inline-block;">View 24observe Dashboard →</a>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p>QA Team Projects Dashboard · Team Lead: Vignesh Vijay K · Built with vanilla HTML/CSS/JS</p>
+    <p>QA Team Projects Dashboard · Team Lead: Vignesh Vijay K</p>
   </footer>
 
   <script>
-    // Theme toggle (same logic as dashboard)
     (function() {
       var btn = document.getElementById('themeToggle');
       if (!btn) return;
