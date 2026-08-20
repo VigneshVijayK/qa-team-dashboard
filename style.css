@@ -358,8 +358,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem 1.5rem;
   flex-wrap: wrap;
+}
+
+/* Back button takes full width on its own row */
+.back-to-projects {
+  flex-basis: 100%;
+  margin-bottom: 0.25rem;
 }
 
 .header-titles h1 {
