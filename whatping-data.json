@@ -1,11 +1,12 @@
 {
   "projectName": "whatping",
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-19T15:23:38.925Z",
+  "generatedAt": "2026-08-20T16:25:59.278Z",
   "dateRange": [
     "2026-08-10",
     "2026-08-17",
-    "2026-08-19"
+    "2026-08-19",
+    "2026-08-20"
   ],
   "weights": {
     "daysPresent": 5,
@@ -14,6 +15,137 @@
     "perDepthSignal": 6
   },
   "members": [
+    {
+      "name": "Emil Thomas",
+      "initials": "ET",
+      "daysPresent": 2,
+      "datesPresent": [
+        "2026-08-19",
+        "2026-08-20"
+      ],
+      "totalBugs": 23,
+      "severityCounts": {
+        "critical": 0,
+        "high": 8,
+        "medium": 6,
+        "lowMedium": 0,
+        "low": 9
+      },
+      "score": 166,
+      "featuresCovered": [
+        "API Tokens",
+        "Monitors",
+        "On-call scheduling",
+        "OpenAPI/Version",
+        "Status Pages",
+        "Webhooks"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "On-host testing",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Impact analysis",
+        "Retest/verification",
+        "Root cause analysis",
+        "Security testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-19",
+          "bugsFound": 4,
+          "features": [
+            "Monitors"
+          ],
+          "methods": [
+            "API testing",
+            "On-host testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-19",
+          "bugsFound": 4,
+          "features": [
+            "On-call scheduling",
+            "Monitors",
+            "Status Pages",
+            "API Tokens",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 1,
+            "lowMedium": 0,
+            "low": 2
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 15,
+          "features": [
+            "On-call scheduling",
+            "Monitors",
+            "Webhooks",
+            "API Tokens",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "On-host testing",
+            "Security testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Security testing",
+            "Retest/verification",
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 6,
+            "medium": 2,
+            "lowMedium": 0,
+            "low": 7
+          }
+        }
+      ]
+    },
     {
       "name": "Preet Mishra",
       "initials": "PM",
@@ -136,103 +268,12 @@
       ]
     },
     {
-      "name": "Emil Thomas",
-      "initials": "ET",
-      "daysPresent": 1,
-      "datesPresent": [
-        "2026-08-19"
-      ],
-      "totalBugs": 8,
-      "severityCounts": {
-        "critical": 0,
-        "high": 2,
-        "medium": 4,
-        "lowMedium": 0,
-        "low": 2
-      },
-      "score": 129,
-      "featuresCovered": [
-        "API Tokens",
-        "Monitors",
-        "On-call scheduling",
-        "OpenAPI/Version",
-        "Status Pages"
-      ],
-      "methodsUsed": [
-        "API testing",
-        "Boundary/input testing",
-        "GUI testing",
-        "On-host testing",
-        "Retest/verification"
-      ],
-      "depthSignals": [
-        "API-level testing",
-        "Fix recommendations",
-        "Impact analysis",
-        "Retest/verification"
-      ],
-      "dailyLog": [
-        {
-          "date": "2026-08-19",
-          "bugsFound": 4,
-          "features": [
-            "Monitors"
-          ],
-          "methods": [
-            "API testing",
-            "On-host testing",
-            "Boundary/input testing",
-            "Retest/verification"
-          ],
-          "depthSignals": [
-            "API-level testing",
-            "Retest/verification",
-            "Fix recommendations",
-            "Impact analysis"
-          ],
-          "severityBreakdown": {
-            "critical": 0,
-            "high": 1,
-            "medium": 3,
-            "lowMedium": 0,
-            "low": 0
-          }
-        },
-        {
-          "date": "2026-08-19",
-          "bugsFound": 4,
-          "features": [
-            "On-call scheduling",
-            "Monitors",
-            "Status Pages",
-            "API Tokens",
-            "OpenAPI/Version"
-          ],
-          "methods": [
-            "GUI testing",
-            "API testing"
-          ],
-          "depthSignals": [
-            "API-level testing",
-            "Fix recommendations",
-            "Impact analysis"
-          ],
-          "severityBreakdown": {
-            "critical": 0,
-            "high": 1,
-            "medium": 1,
-            "lowMedium": 0,
-            "low": 2
-          }
-        }
-      ]
-    },
-    {
       "name": "Vikki Hirapure",
       "initials": "VH",
-      "daysPresent": 1,
+      "daysPresent": 2,
       "datesPresent": [
-        "2026-08-19"
+        "2026-08-19",
+        "2026-08-20"
       ],
       "totalBugs": 0,
       "severityCounts": {
@@ -242,23 +283,27 @@
         "lowMedium": 0,
         "low": 0
       },
-      "score": 99,
+      "score": 142,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
-        "Monitors"
+        "Alerts (Telegram/SMS)",
+        "Monitors",
+        "Webhooks"
       ],
       "methodsUsed": [
         "API testing",
         "Boundary/input testing",
         "GUI testing",
         "On-host testing",
-        "Retest/verification"
+        "Retest/verification",
+        "Security testing"
       ],
       "depthSignals": [
         "API-level testing",
         "Fix recommendations",
-        "Root cause analysis"
+        "Root cause analysis",
+        "Security testing"
       ],
       "dailyLog": [
         {
@@ -288,15 +333,46 @@
             "lowMedium": 0,
             "low": 0
           }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 0,
+          "features": [
+            "Monitors",
+            "AI Analyst",
+            "Webhooks",
+            "Alerts (Telegram/SMS)"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Security testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Security testing",
+            "Fix recommendations"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
         }
       ]
     },
     {
       "name": "Anubhav Soni",
       "initials": "AS",
-      "daysPresent": 1,
+      "daysPresent": 2,
       "datesPresent": [
-        "2026-08-19"
+        "2026-08-19",
+        "2026-08-20"
       ],
       "totalBugs": 0,
       "severityCounts": {
@@ -306,18 +382,22 @@
         "lowMedium": 0,
         "low": 0
       },
-      "score": 59,
+      "score": 96,
       "featuresCovered": [
         "API Tokens",
+        "Billing",
         "Monitors"
       ],
       "methodsUsed": [
         "API testing",
         "Boundary/input testing",
-        "GUI testing"
+        "GUI testing",
+        "Security testing"
       ],
       "depthSignals": [
-        "API-level testing"
+        "API-level testing",
+        "Root cause analysis",
+        "Security testing"
       ],
       "dailyLog": [
         {
@@ -342,26 +422,131 @@
             "lowMedium": 0,
             "low": 0
           }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 0,
+          "features": [
+            "Billing"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Security testing",
+            "Boundary/input testing"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing",
+            "Security testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 0,
+          "features": [],
+          "methods": [],
+          "depthSignals": [],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mubarak Mohammed",
+      "initials": "MM",
+      "daysPresent": 1,
+      "datesPresent": [
+        "2026-08-20"
+      ],
+      "totalBugs": 15,
+      "severityCounts": {
+        "critical": 0,
+        "high": 6,
+        "medium": 2,
+        "lowMedium": 0,
+        "low": 7
+      },
+      "score": 93,
+      "featuresCovered": [
+        "Monitors",
+        "OpenAPI/Version"
+      ],
+      "methodsUsed": [
+        "API testing",
+        "Boundary/input testing",
+        "GUI testing",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Fix recommendations",
+        "Retest/verification",
+        "Security testing"
+      ],
+      "dailyLog": [
+        {
+          "date": "2026-08-20",
+          "bugsFound": 15,
+          "features": [
+            "Monitors",
+            "OpenAPI/Version"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing",
+            "Security testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "API-level testing",
+            "Security testing",
+            "Retest/verification",
+            "Fix recommendations"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 6,
+            "medium": 2,
+            "lowMedium": 0,
+            "low": 7
+          }
         }
       ]
     },
     {
       "name": "Angel Thomas",
       "initials": "AT",
-      "daysPresent": 1,
+      "daysPresent": 2,
       "datesPresent": [
-        "2026-08-19"
+        "2026-08-19",
+        "2026-08-20"
       ],
-      "totalBugs": 5,
+      "totalBugs": 9,
       "severityCounts": {
         "critical": 0,
-        "high": 0,
-        "medium": 3,
+        "high": 1,
+        "medium": 6,
         "lowMedium": 0,
         "low": 2
       },
-      "score": 53,
+      "score": 70,
       "featuresCovered": [
+        "Billing",
         "Monitors"
       ],
       "methodsUsed": [
@@ -395,6 +580,29 @@
             "medium": 3,
             "lowMedium": 0,
             "low": 2
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 4,
+          "features": [
+            "Monitors",
+            "Billing"
+          ],
+          "methods": [
+            "GUI testing",
+            "API testing"
+          ],
+          "depthSignals": [
+            "Fix recommendations",
+            "Impact analysis"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 3,
+            "lowMedium": 0,
+            "low": 0
           }
         }
       ]
@@ -572,6 +780,136 @@
       "depthSignals": [
         "Root cause analysis",
         "API-level testing",
+        "Fix recommendations"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Angel Thomas",
+      "filename": "Angel-Thomas_report_26-8-20.md",
+      "path": "whatping-reports/2026-08-20_Angel-Thomas_report_26-8-20.md",
+      "bugsFound": 4,
+      "features": [
+        "Monitors",
+        "Billing"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing"
+      ],
+      "depthSignals": [
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Anubhav Soni",
+      "filename": "Anubhav-whatping-avatar-bug-report_20-08-2026.md",
+      "path": "whatping-reports/2026-08-20_Anubhav-whatping-avatar-bug-report_20-08-2026.md",
+      "bugsFound": 0,
+      "features": [
+        "Billing"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Security testing",
+        "Boundary/input testing"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Security testing"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Anubhav Soni",
+      "filename": "Anubhav-whatping-team-report_20-08-2026.md",
+      "path": "whatping-reports/2026-08-20_Anubhav-whatping-team-report_20-08-2026.md",
+      "bugsFound": 0,
+      "features": [],
+      "methods": [],
+      "depthSignals": []
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Emil Thomas",
+      "filename": "Emil Thomas Whatping Report_2026-08-20.md",
+      "path": "whatping-reports/2026-08-20_Emil Thomas Whatping Report_2026-08-20.md",
+      "bugsFound": 15,
+      "features": [
+        "On-call scheduling",
+        "Monitors",
+        "Webhooks",
+        "API Tokens",
+        "OpenAPI/Version"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "On-host testing",
+        "Security testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Security testing",
+        "Retest/verification",
+        "Fix recommendations",
+        "Impact analysis"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Mubarak Mohammed",
+      "filename": "Mubarak_Mohammed_WhatPing_Report_2026-08-20 (1).md",
+      "path": "whatping-reports/2026-08-20_Mubarak_Mohammed_WhatPing_Report_2026-08-20 (1).md",
+      "bugsFound": 15,
+      "features": [
+        "Monitors",
+        "OpenAPI/Version"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Security testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "API-level testing",
+        "Security testing",
+        "Retest/verification",
+        "Fix recommendations"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Vikki Hirapure",
+      "filename": "Vikki_Hirapure_20.08.2026-whatping-report.md",
+      "path": "whatping-reports/2026-08-20_Vikki_Hirapure_20.08.2026-whatping-report.md",
+      "bugsFound": 0,
+      "features": [
+        "Monitors",
+        "AI Analyst",
+        "Webhooks",
+        "Alerts (Telegram/SMS)"
+      ],
+      "methods": [
+        "GUI testing",
+        "API testing",
+        "Security testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing",
+        "Security testing",
         "Fix recommendations"
       ]
     }

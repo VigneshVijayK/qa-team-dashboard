@@ -1,7 +1,7 @@
 {
   "projectName": "24observe",
   "teamAdmin": "Vignesh Vijay K",
-  "generatedAt": "2026-08-19T15:23:38.861Z",
+  "generatedAt": "2026-08-20T16:25:59.201Z",
   "dateRange": [
     "2026-08-06",
     "2026-08-07",
@@ -12,7 +12,8 @@
     "2026-08-14",
     "2026-08-17",
     "2026-08-18",
-    "2026-08-19"
+    "2026-08-19",
+    "2026-08-20"
   ],
   "weights": {
     "daysPresent": 5,
@@ -1495,9 +1496,10 @@
     {
       "name": "Preet Mishra",
       "initials": "PM",
-      "daysPresent": 1,
+      "daysPresent": 2,
       "datesPresent": [
-        "2026-08-19"
+        "2026-08-19",
+        "2026-08-20"
       ],
       "totalBugs": 0,
       "severityCounts": {
@@ -1507,11 +1509,12 @@
         "lowMedium": 0,
         "low": 0
       },
-      "score": 167,
+      "score": 198,
       "featuresCovered": [
         "AI Analyst",
         "API Tokens",
         "Billing",
+        "Incidents/Cases",
         "Logs",
         "Monitors",
         "On-call scheduling",
@@ -1523,11 +1526,13 @@
       "methodsUsed": [
         "API testing",
         "Boundary/input testing",
+        "Retest/verification",
         "Security testing"
       ],
       "depthSignals": [
         "API-level testing",
         "Fix recommendations",
+        "Root cause analysis",
         "Security testing"
       ],
       "dailyLog": [
@@ -1563,28 +1568,62 @@
             "lowMedium": 0,
             "low": 0
           }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 0,
+          "features": [
+            "On-call scheduling",
+            "Logs",
+            "Monitors",
+            "AI Analyst",
+            "Status Pages",
+            "Webhooks",
+            "Incidents/Cases",
+            "API Tokens",
+            "OpenAPI/Version",
+            "Billing"
+          ],
+          "methods": [
+            "API testing",
+            "Boundary/input testing",
+            "Retest/verification"
+          ],
+          "depthSignals": [
+            "Root cause analysis",
+            "API-level testing"
+          ],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
         }
       ]
     },
     {
       "name": "Khaja Bandenawaz",
       "initials": "KB",
-      "daysPresent": 1,
+      "daysPresent": 2,
       "datesPresent": [
-        "2026-08-18"
+        "2026-08-18",
+        "2026-08-20"
       ],
-      "totalBugs": 0,
+      "totalBugs": 2,
       "severityCounts": {
         "critical": 0,
-        "high": 0,
-        "medium": 0,
+        "high": 1,
+        "medium": 1,
         "lowMedium": 0,
         "low": 0
       },
-      "score": 61,
+      "score": 78,
       "featuresCovered": [
         "API Tokens",
         "Billing",
+        "Log Alerts",
         "Logs"
       ],
       "methodsUsed": [
@@ -1614,6 +1653,42 @@
             "critical": 0,
             "high": 0,
             "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 0,
+          "features": [
+            "Logs",
+            "API Tokens",
+            "Log Alerts"
+          ],
+          "methods": [
+            "API testing"
+          ],
+          "depthSignals": [],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 0,
+            "medium": 0,
+            "lowMedium": 0,
+            "low": 0
+          }
+        },
+        {
+          "date": "2026-08-20",
+          "bugsFound": 2,
+          "features": [],
+          "methods": [
+            "API testing"
+          ],
+          "depthSignals": [],
+          "severityBreakdown": {
+            "critical": 0,
+            "high": 1,
+            "medium": 1,
             "lowMedium": 0,
             "low": 0
           }
@@ -2669,6 +2744,62 @@
         "API-level testing",
         "Security testing",
         "Fix recommendations"
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Khaja Bandenawaz",
+      "filename": "24Observe_Daily_Testing_Report_20-Aug-2026.md",
+      "path": "reports/2026-08-20_24Observe_Daily_Testing_Report_20-Aug-2026.md",
+      "bugsFound": 0,
+      "features": [
+        "Logs",
+        "API Tokens",
+        "Log Alerts"
+      ],
+      "methods": [
+        "API testing"
+      ],
+      "depthSignals": []
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Khaja Bandenawaz",
+      "filename": "24Observe_Logs_Bug_Report_19-August-2026.md",
+      "path": "reports/2026-08-20_24Observe_Logs_Bug_Report_19-August-2026.md",
+      "bugsFound": 2,
+      "features": [],
+      "methods": [
+        "API testing"
+      ],
+      "depthSignals": []
+    },
+    {
+      "date": "2026-08-20",
+      "tester": "Preet Mishra",
+      "filename": "PREET_MISHRA_24OBSERVE_TEST_REPORT_20AUG.md",
+      "path": "reports/2026-08-20_PREET_MISHRA_24OBSERVE_TEST_REPORT_20AUG.md",
+      "bugsFound": 0,
+      "features": [
+        "On-call scheduling",
+        "Logs",
+        "Monitors",
+        "AI Analyst",
+        "Status Pages",
+        "Webhooks",
+        "Incidents/Cases",
+        "API Tokens",
+        "OpenAPI/Version",
+        "Billing"
+      ],
+      "methods": [
+        "API testing",
+        "Boundary/input testing",
+        "Retest/verification"
+      ],
+      "depthSignals": [
+        "Root cause analysis",
+        "API-level testing"
       ]
     }
   ]
